@@ -1,2 +1,2 @@
-var xp = "Hello World2";
-console.log(xp, " Hello");
+var xp = 0;
+var camperbot = "Bot";
