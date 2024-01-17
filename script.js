@@ -5,6 +5,5 @@ let currentWeapon = 0;
 let fighting;
 let monsterHealth;
 let inventory = ['stick'];
-// Document Object Model, or DOM.
-// One method for finding specific elements in your HTML is using the querySelector() method
-let button1 = document.querySelector('#button1');
+// button1 is a variable that is not going to be reassigned
+const button1 = document.querySelector('#button1');
