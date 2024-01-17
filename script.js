@@ -36,3 +36,4 @@ function fightDragon() {
   hello world
 */
 // initialize buttons.
+button1.onclick = goStore;
