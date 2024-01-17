@@ -29,3 +29,10 @@ function goCave() {
 function fightDragon() {
     console.log("Fighting dragon.");
 }
+
+// hello world
+
+/*
+  hello world
+*/
+// initialize buttons.
