@@ -12,4 +12,4 @@ let inventory = ["stick"];
 
 //DOM represents the HTML
 
-let button1  = document.querySelector("#button1")
+const  button1  = document.querySelector("#button1")
