@@ -26,3 +26,7 @@ const monsterHealthText  = document.querySelector("#monsterHealthText")
 function goStore () {
         console.log("Going to store.");
 }
+
+function goCave  () {
+        console.log("Going to cave.");
+}
