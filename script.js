@@ -51,6 +51,10 @@ function fightDragon() {
 }
 
 function buyHealth() {
+    if (gold <= 0) {
+        alert("You don't have enough gold!");
+        return;
+    }
     health += 10;
     healthText.innerText = health;
     gold -= 10;
