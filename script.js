@@ -1,1 +1,3 @@
-<script src="./script.js"></script>
+//<script src="./script.js"></script>
+
+console.log("Hello World");
