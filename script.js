@@ -31,3 +31,4 @@ function fightDragon()
 {
     console.log("Fighting dragon.");
 }
+// initialize buttons
