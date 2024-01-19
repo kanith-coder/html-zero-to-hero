@@ -19,9 +19,11 @@ const monsterStats = document.querySelector("#monsterStats");
 const monsterName = document.querySelector("#monsterName");
 const monsterHealthText = document.querySelector("#monsterHealth");
 
+// const info = document.querySelector("#info");
+// info.innerText = "Hello World";
 function goStore()
 {
-    console.log("Going to store.");
+    button1.innerText = "Buy 10 health (10 gold)";
 }
 function goCave()
 {
