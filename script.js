@@ -1,5 +1,5 @@
 // console.log("Hello World");
-var xp = 0;
-var health = 100;
-var gold = 50;
-var currentWeapon = 0;
+let xp = 0;
+let health = 100;
+let gold = 50;
+let currentWeapon = 0;
