@@ -44,10 +44,12 @@ function goStore() {
 
 function goCave() {
     console.log("Going to cave.");
+    alert("You are in the cave.");
 }
 
 function fightDragon() {
     console.log("Fighting dragon.");
+    alert("Fighting dragon.");
 }
 
 function buyHealth() {
