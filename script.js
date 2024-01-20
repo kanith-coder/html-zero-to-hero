@@ -21,9 +21,7 @@ const healthText  = document.querySelector("#healthText")
 const goldText  = document.querySelector("#goldText")
 const monsterStats  = document.querySelector("#monsterStats")
 const monsterName  = document.querySelector("#monsterName")
-const monsterHealthText  = document.querySelector("#monsterHealthText")
-
-//initialize buttons
+const monsterHealthText  = document.querySelector("##monsterHealth")
 
 function goStore () {
         console.log("Going to store.");
@@ -36,3 +34,7 @@ function goCave  () {
 function fightDragon   () {
         console.log("Fighting dragon.");
 }
+
+//initialize buttons
+
+button1.onclick = goStore;
