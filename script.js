@@ -79,7 +79,11 @@ function fightDragon() {
 }
 
 function buyHealth() {
-    if (gold <= 0) {
+    // if (gold <= 0) {
+    //     alert("You don't have enough gold!");
+    //     return;
+    // }
+    if ("condition") {
         alert("You don't have enough gold!");
         return;
     }
