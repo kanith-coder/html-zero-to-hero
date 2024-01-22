@@ -135,6 +135,16 @@ function buyWeapon() {
   button2.innerText = "Sell weapon for 15 gold";
   button2.onclick = sellWeapon;
 }
+function sellWeapon() {
+    if (inventory.length > 1) {
+        gold += 15;
+        let currentWeapon;
+        goldText.innerText = gold;
+        inventory.pop();
+        text.innerText = "You sold your weapon for 15 gold.";
+        text.innerText += " In your inventory you have: " + inventory;
+    }
+}
 
 function fightSlime() {}
 
