@@ -138,11 +138,7 @@ function buyWeapon() {
 function sellWeapon() {
     if (inventory.length > 1) {
         gold += 15;
-        let currentWeapon;
-        goldText.innerText = gold;
-        inventory.pop();
-        text.innerText = "You sold your weapon for 15 gold.";
-        text.innerText += " In your inventory you have: " + inventory;
+        let currentWeapon = inventory.shift();
     }
 }
 
