@@ -79,20 +79,15 @@ function fightDragon() {
 }
 
 function buyHealth() {
-    // if (gold <= 0) {
-    //     alert("You don't have enough gold!");
-    //     return;
-    // }
-    if ("condition") {
-        alert("You don't have enough gold!");
-        return;
+    if (gold >= 10) {
+        health += 10;
+        // health = health + 10;
+        healthText.innerText = health;
+        gold -= 10;
+        // gold = gold - 10;
+        goldText.innerText = gold;
     }
-    health += 10;
-    // health = health + 10;
-    healthText.innerText = health;
-    gold -= 10;
-    // gold = gold - 10;
-    goldText.innerText = gold;
+
 }
 
 function buyWeapon() {
