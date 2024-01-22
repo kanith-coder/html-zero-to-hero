@@ -113,7 +113,7 @@ function buyHealth() {
 }
 
 function buyWeapon() {
-  if (currentWeapon < 3) {
+  if (currentWeapon < weapons.length - 1) {
     if (gold >= 30) {
       gold -= 30;
       currentWeapon++;
