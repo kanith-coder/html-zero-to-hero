@@ -21,11 +21,12 @@ const healthText  = document.querySelector("#healthText")
 const goldText  = document.querySelector("#goldText")
 const monsterStats  = document.querySelector("#monsterStats")
 const monsterName  = document.querySelector("#monsterName")
-const monsterHealthText  = document.querySelector("##monsterHealth")
+const monsterHealthText  = document.querySelector("#monsterHealth")
 const locations = [
         {
-          name: "town square",
-          "button text" : ["Go to store", "Go to cave", "Fight dragon"]
+        name: "town square",
+        "button text" : ["Go to store", "Go to cave", "Fight dragon"],
+        "button functions": [goStore, goCave, fightDragon]
         }
       ];
 
