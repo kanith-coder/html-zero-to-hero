@@ -49,7 +49,7 @@ function update(goTown) {
       }
       
       function goTown() {
-        update (locations);
+        update(locations[0]);
       }
       
       function goStore() {
