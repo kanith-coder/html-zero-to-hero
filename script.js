@@ -192,11 +192,14 @@ function attack() {
 
     if (health <= 0) {
         lose();
+    } else if (monsterHealth <= 0) {
+        defeatMonster();
     }
 }
 
 function dodge() {}
 function lose() {}
+function defeatMonster() {}
 
 // hello world
 
