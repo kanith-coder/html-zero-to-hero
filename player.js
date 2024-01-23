@@ -6,7 +6,7 @@ const data = [
 ];
 
 // Array
-let array = [2, 'hello', true, {age: 25}, [1, 2, 3, 4, 5]];
+let array = [2, 'hello', true, { age: 25 }, [1, 2, 3, 4, 5]];
 
 // Object
 const kanith = {
@@ -21,11 +21,11 @@ const kanith = {
 
 function addPlayer(newPlayer) {
     const tbody = document.querySelector("#player tbody");
-    newPlayer.forEach(function(item) {
+    newPlayer.forEach(function (item) {
         // <tr></tr>
-        var row = document.createElement('tr'); 
+        var row = document.createElement('tr');
         // { name: "John", xp: 47, health: 46, gold: 100 }
-        Object.values(item).forEach(function(key, value) {
+        Object.values(item).forEach(function (key, value) {
             // <td>John</td>
             var td = document.createElement('td');
             td.textContent = value;
@@ -39,11 +39,11 @@ function addPlayer(newPlayer) {
         });
         // <tbody>
         // <tr>
-            // <td>John</td>
-            // <td>47</td>
-            // <td>46</td>
-            // <td>100</td>
-            // </tr>
+        // <td>John</td>
+        // <td>47</td>
+        // <td>46</td>
+        // <td>100</td>
+        // </tr>
         // </tbody>
         tbody.appendChild(row);
     });

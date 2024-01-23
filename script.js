@@ -229,7 +229,7 @@ function dodge() {
     "You dodge the attack from the " + monsters[fighting].name + ".";
 }
 function lose() {
-    update(locations[6]);
+  update(locations[6]);
 }
 function defeatMonster() {
   gold += Math.floor(monsters[fighting].level * 6.7);
@@ -240,15 +240,15 @@ function defeatMonster() {
 }
 
 function restart() {
-    xp = 0;
-    health = 100;
-    gold = 50;
-    currentWeapon = 0;
-    inventory = ["stick"];
-    goldText.innerText = gold;
-    xpText.innerText = xp;
-    healthText.innerText = health;
-    goTown();
+  xp = 0;
+  health = 100;
+  gold = 50;
+  currentWeapon = 0;
+  inventory = ["stick"];
+  goldText.innerText = gold;
+  xpText.innerText = xp;
+  healthText.innerText = health;
+  goTown();
 }
 
 // hello world
@@ -262,32 +262,31 @@ button2.onclick = goCave;
 button3.onclick = fightDragon;
 
 function testLocalVariable() {
-    currentWeapon = 100000000;
+  currentWeapon = 100000000;
   console.log(currentWeapon);
   testGlobalVariable();
 }
 
 function testGlobalVariable() {
-    currentWeapon = 50;
-    console.log(currentWeapon);
-  }
+  currentWeapon = 50;
+  console.log(currentWeapon);
+}
 
 function passParamByValue(param) {
-    param += 100;
-    console.log('passParamByValue param: ' + param);
+  param += 100;
+  console.log('passParamByValue param: ' + param);
 }
 
 function passParamByRef(param) {
-    param.value += 100;
-    console.log('passParamByValue value: ' + param.value);
+  param.value += 100;
+  console.log('passParamByValue value: ' + param.value);
 }
 
 function testPassParm() {
-    let param1 = 40;
-    passParamByValue(param1);
-    let param2 = {value: 50};
-    passParamByRef(param2);
-    console.log('testPassParm param1: ' + param1);
+  let param1 = 40;
+  passParamByValue(param1);
+  let param2 = { value: 50 };
+  passParamByRef(param2);
+  console.log('testPassParm param1: ' + param1);
 }
-
 
