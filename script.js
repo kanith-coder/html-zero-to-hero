@@ -260,3 +260,14 @@ function restart() {
 button1.onclick = goStore;
 button2.onclick = goCave;
 button3.onclick = fightDragon;
+
+function testLocalVariable() {
+    currentWeapon = 100000000;
+  console.log(currentWeapon);
+  testGlobalVariable();
+}
+
+function testGlobalVariable() {
+    currentWeapon = 50;
+    console.log(currentWeapon);
+  }
