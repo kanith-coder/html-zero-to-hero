@@ -69,11 +69,11 @@ function goCave() {
   }
       
 function fightDragon() {
-    console.log("Fighting dragon.");
+  console.log("Fighting dragon.");
   }
       
 function buyHealth() {
-      
+  gold: gold = gold - 10;    
   }
       
 function buyWeapon() {
