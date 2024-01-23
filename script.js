@@ -271,3 +271,23 @@ function testGlobalVariable() {
     currentWeapon = 50;
     console.log(currentWeapon);
   }
+
+function passParamByValue(param) {
+    param += 100;
+    console.log('passParamByValue param: ' + param);
+}
+
+function passParamByRef(param) {
+    param.value += 100;
+    console.log('passParamByValue value: ' + param.value);
+}
+
+function testPassParm() {
+    let param1 = 40;
+    passParamByValue(param1);
+    let param2 = {value: 50};
+    passParamByRef(param2);
+    console.log('testPassParm param1: ' + param1);
+}
+
+
