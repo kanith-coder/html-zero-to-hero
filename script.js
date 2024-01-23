@@ -57,18 +57,26 @@ function goStore() {
 
   }
 
-      function goCave() {
-        console.log("Going to cave.");
-      }
+function goCave() {
+    console.log("Going to cave.");
+  }
       
-      function fightDragon() {
-        console.log("Fighting dragon.");
-      }
+function fightDragon() {
+    console.log("Fighting dragon.");
+  }
       
-      function buyHealth() {
+function buyHealth() {
       
-      }
+  }
       
-      function buyWeapon() {
+function buyWeapon() {
       
-      }
+  }
+      
+function fightSlime() {
+
+  }
+      
+function fightBeast() {
+      
+  }
