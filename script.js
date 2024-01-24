@@ -14,11 +14,14 @@ depositBtn.addEventListener('click', (event) => {
 
 depositTxt.addEventListener('keyup', (event) => {
   incentive += 50;
+  this.valueAsNumber;
   deposit();
 });
 
 function deposit() {
   console.log('Deposit button clicked');
+  depositTxt.valueAsNumber;
+  depositTxt.value;
 
   balanceSpn.innerText = balance;
   incentiveSpn.innerText = incentive;
