@@ -7,21 +7,32 @@
   </head>
   <body>
     <div class="content">
-        <table id="deposit-money" class="stat">
-          <caption>Deposit Money</caption>
-            <thead>
-              <tr>
-                <th>Deposit Date</th>
-                <th>Amount</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1//2024</td>
-                <td>25,000</td>
-              </tr>
-            </tbody>
-        </table>
+      <div class="stat">
+        <label for="deposti-input">Input your deposit amount:</label>
+        <input type="text" id="deposti-input">
+        <button id="deposit-btn">Deposit</button>
+      </div>
+      <div class="stat">
+        <label class="stat"  for="deposti-input">Total: <span>7000</span></label>
+      </div>
+      <div class="stat">
+        <label class="stat"  for="deposti-input">Incentive:<span>7000</span></label>
+      </div>
+      <table id="deposit-money" class="stat">
+        <caption>Deposit Money</caption>
+          <thead>
+            <tr>
+              <th>Deposit Date</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1//2024</td>
+              <td>25,000</td>
+            </tr>
+          </tbody>
+      </table>
     </div>
     <script src="./script.js"></script>
   </body>
