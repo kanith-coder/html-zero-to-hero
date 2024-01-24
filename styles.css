@@ -55,6 +55,10 @@ button {
     padding: 10px 10px 10px 10px;
 }
 
+label, .stat {
+    color: #0a0a23;
+}
+
 table {
     border-collapse: collapse;
     width: 100%;
