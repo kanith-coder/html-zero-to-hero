@@ -9,52 +9,49 @@ let incentive= 0;
 
 depositBtn.addEventListener('click', (event) => {
     balance += 10;
-    // deposit();
+    deposit();
   });
   
 depositTxt.addEventListener('keyup', (event) => {
     event.preventDefault; 
     incentive += 50;
-    // deposit();
+    deposit();
     if (event.key === 'Enter'){
       console.log('enter');
-
     }
-      console.log('OK')
   });
   
-
-  // function deposit() {
-  //   console.log('Deposit button clicked');
-  //   depositTxt.valueAsNumber;
-  //   depositTxt.value;
+  function deposit() {
+    console.log('Deposit button clicked');
+    depositTxt.valueAsNumber;
+    depositTxt.value;
   
-  //   balanceSpn.innerText = balance;
-  //   incentiveSpn.innerText = incentive;
+    balanceSpn.innerText = balance;
+    incentiveSpn.innerText = incentive;
   
-  //   const tbody = document.querySelector('#deposit-money tbody');
-  //   var row = document.createElement('tr');
+    const tbody = document.querySelector('#deposit-money tbody');
+    var row = document.createElement('tr');
   
-  //   // Format the date using Intl.DateTimeFormat
-  //   var formattedDate = new Intl.DateTimeFormat('en-US', {
-  //     year: 'numeric',
-  //     month: 'long',
-  //     day: 'numeric'
-  //   }).format(Date.now());
-  //   // Date
-  //   var tdDate = document.createElement('td');
-  //   tdDate.textContent = formattedDate;
-  //   row.appendChild(tdDate);
+    // Format the date using Intl.DateTimeFormat
+    var formattedDate = new Intl.DateTimeFormat('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    }).format(Date.now());
+    // Date
+    var tdDate = document.createElement('td');
+    tdDate.textContent = formattedDate;
+    row.appendChild(tdDate);
   
-  //   // Amount
-  //    // Format the number as currency using Intl.NumberFormat
-  //    var formattedCurrency = new Intl.NumberFormat('en-US', {
-  //     style: 'currency',
-  //     currency: 'THB' // Change this to your desired currency code
-  //   }).format(100);
-  //   var tdAmount = document.createElement('td');
-  //   tdAmount.textContent = formattedCurrency;
-  //   row.appendChild(tdAmount);
+    // Amount
+     // Format the number as currency using Intl.NumberFormat
+     var formattedCurrency = new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD' // Change this to your desired currency code
+    }).format(500);
+    var tdAmount = document.createElement('td');
+    tdAmount.textContent = formattedCurrency;
+    row.appendChild(tdAmount);
     
-  //   tbody.appendChild(row);
-  // }
+    tbody.appendChild(row);
+  }

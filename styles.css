@@ -7,6 +7,8 @@ table {
     border-collapse: collapse;
     width: 50%;
     margin-left: 20%;
+    background-color: #f8f7f7;
+
 }
 
 td, th {
@@ -16,8 +18,9 @@ td, th {
 }
 
 th {
-    background-color: #f067bb;
+    background-color: #1ba78f;
     padding: 5px;
+    color: #f5eeee;
 
 }
 tr:nth-child(even) {
@@ -25,57 +28,23 @@ tr:nth-child(even) {
 }
 
 .content {
-    color: #110101;
-}
-
-.content {
-    width: 50%;
-    margin-left: 20%;
+    max-width: 500px;
+    max-height: 400px;
+    background-image: linear-gradient(#f5eeee, #96facb);
+    color: #131212;
+    margin-top: 30px;
+    margin-bottom: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    padding:  10px;;
     font-size: large;
 }
 
+.deposit-btn {
+    cursor:  pointer;
+    color:  #f4f4f8;
+    background-color: #117c73;
+    border: 1px solid #5757574d;
+    }
 
 
-    /* body    {
-        background-color: #0a0a23;}
-
-
-        #text   {
-                background-color: #0a0a23;
-                color: #ffffff;
-                padding:  10px;}
-
-        #game   {
-                max-width: 500px;
-                max-height: 400px;
-                background-color: #ffffff;
-                color: #ffffff;
-                margin-top: 30px;
-                margin-bottom: 0px;
-                margin-left: auto;
-                margin-right: auto;
-                padding:  10px;}
-        
-        #controls,      #stats {
-                border: 1px solid #0a0a23;
-                color: #0a0a23;
-                padding:  5px;
-                }
-        
-        #monsterStats {
-                border: 1px solid #0a0a23;
-                color: #ffffff;
-                padding:  5px;
-                background-color:  #c70d0d;
-                display: none;   
-                }
-
-        .stat   {padding-right: 10px;}
-
-        button  {
-                cursor:  pointer;
-                color:  #0a0a23;
-                background-color: #feac32;
-                background-image: linear-gradient(#fecc4c, #ffac33);
-                border: 3px solid #feac32;
-                } */
