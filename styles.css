@@ -1,4 +1,42 @@
-body    {
+body {
+    margin-top: 50px;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+    margin-left: 20%;
+}
+
+td, th {
+    border: 1px solid #110101;
+    text-align: center;
+    padding: 1px;
+}
+
+th {
+    background-color: #f067bb;
+    padding: 5px;
+
+}
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.content {
+    color: #110101;
+}
+
+.content {
+    width: 50%;
+    margin-left: 20%;
+    font-size: large;
+}
+
+
+
+    /* body    {
         background-color: #0a0a23;}
 
 
@@ -40,4 +78,4 @@ body    {
                 background-color: #feac32;
                 background-image: linear-gradient(#fecc4c, #ffac33);
                 border: 3px solid #feac32;
-                }
+                } */
