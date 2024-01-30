@@ -1,5 +1,6 @@
 const depositBtn = document.querySelector('.deposit-btn');
 const depositTxt = document.querySelector("#deposit-input");
+depositTxt.value >0;
 const balanceSpn = document.querySelector("#balance-spn");
 const incentiveSpn = document.querySelector("#incentive-spn");
 
@@ -7,17 +8,18 @@ let depositAmount= 0;
 let balance= 0;
 let incentive= 0;
 
-depositBtn.addEventListener('click', (event) => {
-    balance += 10;
+depositBtn.addEventListener('click', function (event){
+  addRow();
   });
   
 depositTxt.addEventListener('keyup', function (event){
-    this.valueAsnumber;
-    console.log(this.valueAsnumber);
+    let valueAsnumber = this.valueAsnumber;
+    let value = this.value;
     if (event.key === 'Enter'){
       event.preventDefault;
       addRow();
-    }
+    };
+    //@TODO ใน textbox > 0 ถึงจะ addrow ได้
   });
   
 function addRow() {
