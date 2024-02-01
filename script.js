@@ -14,7 +14,7 @@ let depositValue = depositTxt.value; // ค่าที่อยู่ใน tex
 const balanceSpn = document.querySelector("#balance-spn");
 const incentiveSpn = document.querySelector("#incentive-spn");
 
-let depositAmount= 0;
+let depositAmountGlobal= 0;
 let balance= 0;
 let incentive= 0;
 
@@ -26,11 +26,15 @@ let incentive= 0;
 
 depositBtn.addEventListener('click',function (event) {
 
-  // Local variables
-  let depositAmount = parseInt(depositTxt.value);
+  // // Local variables
+  // let depositAmountLocal = parseInt(depositTxt.value);
+
   balance += 10;
+  addRow();
+  onfocus = this.value
   });
   
+
 depositTxt.addEventListener('keyup', function (event){
     if (event.key === 'Enter'){
       event.preventDefault;
@@ -58,8 +62,11 @@ function addRow() {
 
   const tdMoney = document.createElement('td');
   //  <td>2000</td>
-  
-  tdMoney.textContent = 2000;
+
+  // Local variables
+  let depositAmountLocal = parseFloat(depositTxt.value);
+
+  tdMoney.textContent = depositAmountLocal;
   //  <tr>
   //  <td>01/01/2567</td>
   //  <td>2000</td>
