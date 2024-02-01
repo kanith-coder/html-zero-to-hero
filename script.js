@@ -1,6 +1,13 @@
+// Global variables
+// getElementByClassName ใช้ได้เมื่อมี class ใน html
 const depositBtn = document.querySelector('.deposit-btn');
+// depositBtn [{ input:'Deposit' }, {input: 'Withdraw'} ];
+// depositBtn[index].addEventListener = function() {}
+
+// getElementById ใช้ได้เมื่อมี id ใน html
 const depositTxt = document.querySelector("#deposit-input");
-depositTxt.value >0;
+// const depositTxt = document.getElementById("deposit-input");
+
 const balanceSpn = document.querySelector("#balance-spn");
 const incentiveSpn = document.querySelector("#incentive-spn");
 
@@ -10,6 +17,8 @@ let incentive= 0;
 
 
 depositBtn.addEventListener('click', (event) => {
+  // Local variables
+  let depositAmount = parseInt(depositTxt.value);
   balance += 10;
   });
   
