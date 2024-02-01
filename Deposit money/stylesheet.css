@@ -1,0 +1,168 @@
+/* body {
+    margin-top: 50px;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+    margin-left: 20%;
+    background-color: #f8f7f7;
+
+}
+
+td, th {
+    border: 1px solid #110101;
+    text-align: center;
+    padding: 1px;
+    border: 1px solid #055a454d
+}
+
+th {
+    background-color: #1ba78f;
+    padding: 5px;
+    color: #f5eeee;
+
+}
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.content {
+    max-width: 500px;
+    max-height: 400px;
+    background-image: linear-gradient(#f5eeee, #96facb);
+    color: #131212;
+    margin-top: 30px;
+    margin-bottom: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    padding:  10px;;
+    font-size: large;
+}
+
+.deposit-btn {
+    cursor:  pointer;
+    color:  #f4f4f8;
+    background-color: #117c73;
+    border: 1px solid #5757574d;
+    }
+
+ */
+
+ /* body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 8px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+tfoot {
+    font-weight: bold;
+} */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+thead {
+    background-color: #4caf50;
+    color: #fff;
+}
+
+#totals {
+    margin-top: 20px;
+}
+
+#totals p {
+    margin: 8px 0;
+}
+
+#totals span {
+    font-weight: bold;
+    color: #4caf50;
+}

@@ -8,20 +8,21 @@ let depositAmount= 0;
 let balance= 0;
 let incentive= 0;
 
-depositBtn.addEventListener('click', function (event){
-  addRow();
+
+depositBtn.addEventListener('click', (event) => {
+  balance += 10;
   });
   
 depositTxt.addEventListener('keyup', function (event){
-    let valueAsnumber = this.valueAsnumber;
-    let value = this.value;
     if (event.key === 'Enter'){
       event.preventDefault;
       addRow();
     };
     //@TODO ใน textbox > 0 ถึงจะ addrow ได้
   });
-  
+
+
+
 function addRow() {
   //  <tbody></tbody>
   const tbody = document.querySelector('#deposit-money tbody');
@@ -39,6 +40,7 @@ function addRow() {
 
   const tdMoney = document.createElement('td');
   //  <td>2000</td>
+  
   tdMoney.textContent = 2000;
   //  <tr>
   //  <td>01/01/2567</td>
