@@ -2,8 +2,13 @@ const inputSaving = document.querySelector('#input-saving');
 inputSaving.value = 0;
 let amount = 0;
 
+let valueAsNumber = inputSaving.valueAsNumber;
+let value = inputSaving.value;
+
 
 inputSaving.addEventListener('keyup', function (event) {
+    let valueAsNumber = this.valueAsNumber;
+    let value = this.value;
     console.log(event.key === 'Enter');
     if (event.key === 'Enter') {
         event.preventDefault();
