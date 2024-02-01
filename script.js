@@ -8,6 +8,9 @@ const depositBtn = document.querySelector('.deposit-btn');
 const depositTxt = document.querySelector("#deposit-input");
 // const depositTxt = document.getElementById("deposit-input");
 
+let depositValue = depositTxt.value; // ค่าที่อยู่ใน textbox
+// alert(depositValue);
+
 const balanceSpn = document.querySelector("#balance-spn");
 const incentiveSpn = document.querySelector("#incentive-spn");
 
@@ -15,8 +18,14 @@ let depositAmount= 0;
 let balance= 0;
 let incentive= 0;
 
+  // Asynchronous function (non-blocking) ไม่รอให้ทำเสร็จก่อน
+  // getUserProfile('api/con/323232222').then((userProfile) => {
+  //   depositTxt.value = userProfile.balance;
+  // });
+  // Synchronous function (blocking) รอให้ทำเสร็จก่อน 
 
-depositBtn.addEventListener('click', (event) => {
+depositBtn.addEventListener('click',function (event) {
+
   // Local variables
   let depositAmount = parseInt(depositTxt.value);
   balance += 10;
