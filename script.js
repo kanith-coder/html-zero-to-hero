@@ -1,6 +1,6 @@
 // Global variables
 // getElementByClassName ใช้ได้เมื่อมี class ใน html
-const depositBtn = document.querySelector('.deposit-btn');
+const depositBtn = document.querySelector('#deposit-btn');
 // depositBtn [{ input:'Deposit' }, {input: 'Withdraw'} ];
 // depositBtn[index].addEventListener = function() {}
 
@@ -24,14 +24,10 @@ let incentive= 0;
   // });
   // Synchronous function (blocking) รอให้ทำเสร็จก่อน 
 
+
 depositBtn.addEventListener('click',function (event) {
-
-  // // Local variables
-  // let depositAmountLocal = parseInt(depositTxt.value);
-
   balance += 10;
   addRow();
-  onfocus = this.value
   });
   
 
@@ -63,9 +59,9 @@ function addRow() {
   const tdMoney = document.createElement('td');
   //  <td>2000</td>
 
-  // Local variables
-  let depositAmountLocal = parseFloat(depositTxt.value);
-
+  // // Local variables
+  let depositAmountLocal = parseInt(depositTxt.value);
+    
   tdMoney.textContent = depositAmountLocal;
   //  <tr>
   //  <td>01/01/2567</td>
@@ -74,4 +70,5 @@ function addRow() {
   row.appendChild(tdMoney);
   tbody.appendChild(row);
 }
+
 
