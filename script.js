@@ -60,7 +60,7 @@ function addRow() {
   //  <td>2000</td>
 
   // // Local variables
-  let depositAmountLocal = parseInt(depositTxt.value);
+  let depositAmountLocal = depositTxt.valueAsNumber;
     
   tdMoney.textContent = depositAmountLocal;
   //  <tr>
