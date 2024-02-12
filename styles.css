@@ -1,93 +1,160 @@
 :root {
-    --light-grey: #f5f6f7;
-    --dark-blue: #0a0a23;
-    --fcc-blue: #1b1b32;
-    --light-yellow: #fecc4c;
-    --dark-yellow: #feac32;
-    --light-pink: #ffadad;
-    --dark-red: #850000;
-    --light-green: #acd157;
-  }
-  
-  body {
-    font-family: "Lato", Helvetica, Arial, sans-serif;
-    font-size: 18px;
-    background-color: var(--fcc-blue);
-    color: var(--light-grey);
-  }
-  
-  h1 {
-    text-align: center;
-  }
-  
-  .container {
-    width: 90%;
-    max-width: 680px;
-  }
-  
-  h1,
-  .container,
-  .output {
-    margin: 20px auto;
-  }
-  
-  label,
-  legend {
-    font-weight: bold;
-  }
-  
-  .input-container {
+  --light-grey: #f5f6f7;
+  --dark-blue: #0a0a23;
+  --fcc-blue: #1b1b32;
+  --light-yellow: #fecc4c;
+  --dark-yellow: #feac32;
+  --light-pink: #ffadad;
+  --dark-red: #850000;
+  --light-green: #acd157;
+}
+
+body {
+  font-family: Tahoma, sans-serif;
+  font-size: 18px;
+  background-color: var(--fcc-blue);
+  color: var(--light-grey);
+}
+
+/* จัดรูปแบบกลางหน้าจอ */
+.container {
+  margin: 30px auto;
+  width: 50%;
+  max-width: 680px;
+}
+
+h1 {
+  font-family: 'Trebuchet MS', sans-serif;
+  text-align: center;
+}
+
+/* กำหนดขนาด Fields และขนาดตัวอักษรใน Fields */
+row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 20px;
+  padding: 10px;
+}  
+
+  .inputBooking,
+  .inputPersonal {
+    width: calc(50% - 20px);
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    margin: 5px;
+  }
+
+  .inputBooking label, .inputPersonal label {
+    margin-bottom: 5px;
+    line-height: .6; 
+  }
+
+  .inputBooking input, select,
+  .inputPersonal input {
+    padding: 15px;
+    line-height: .6em; 
+    font-size: .9em
+  }
+
+  .inputBooking, .inputPersonal {
+    width: calc(50% - 20px); 
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
   }
   
-  button {
-    cursor: pointer;
+#passengerCount{
+  width: 40px;
+  min-height: 30px;
+}
+
+/* กำหนดรูปแบบ และตำแหน่งปุ่ม */
+#buttonContainer {
+  position: fixed;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between; 
+  transform: translateY(-50%); 
+}
+
+  .button {
+    padding: 10px 20px;
+    background-color: #e0ac13;
+    color: #080808;
     text-decoration: none;
-    background-color: var(--light-yellow);
-    border: 2px solid var(--dark-yellow);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100px;
   }
-  
-  .clear {
-    background-color: var(--light-pink);
-    color: var(--dark-red);
-    border-color: var(--dark-red);
-  }
-  
-  button,
-  input,
-  select {
-    min-height: 24px;
-    color: var(--dark-blue);
-  }
-  
-  fieldset,
-  label,
-  button,
-  input,
-  select {
-    margin-bottom: 10px;
-  }
-  
-  .output {
-    border: 2px solid var(--light-grey);
-    padding: 10px;
-    text-align: center;
-  }
-  
-  .hide {
-    display: none;
-  }
-  
-  .output span {
-    font-weight: bold;
-    font-size: 1.2em;
-  }
-  
-  .surplus {
-    color: var(--light-pink);
-  }
-  
-  .deficit {
-    color: var(--light-green);
-  }
+
+    #backBtn1, #backBtn2 {
+      margin-top: 20px;
+      margin-left: 50px;
+    }
+
+    #nextBtn1 {
+      margin-top: 20px;
+      margin-left: 530px;
+    }
+
+    #addPassenger {
+      width: 150px;
+      margin-left: 480px;
+    }
+    
+    #nextBtn2 {
+      margin-top: 20px;
+      margin-left: 380px;
+    }  
+
+    #submitBtn {
+      margin-top: 20px;
+      margin-left: 380px;
+    }
+
+/* กำหนดขนาดและตำแหน่ง checkbox */
+input[type="checkbox"] {
+  width: 25px; 
+  height: 25px; 
+  position: relative;
+  top: 5px; 
+  left: 1px; 
+}
+
+fieldset {
+margin-top: 10px;
+margin-bottom: 30;
+margin-left: 30px;
+margin-right: 30px;
+}
+
+/* ขนาดตัวอักษร */
+legend {
+  font-weight: bold;
+}
+
+.countForm {
+margin-top: 20px ;
+margin-left: 100px;
+}
+
+.passengerForm {
+margin-top: 20px;
+}
+
+.totalTicket {
+margin-left: 50px;
+}
+
+.column1 {
+width: 200px;
+}
+
+/* ปรับตำแหน่งข้อมูลใน Checkbox */
+.returnTrip, .departureTrip {
+margin-left: 60px;
+}

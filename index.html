@@ -8,10 +8,91 @@
   </head>
   <body>
     <main>
-      <h1>Paper Airline</h1>
       <div class="container">
-      
-      </div>
+        <h1>Paper Airline</h1>
+            <hr>  <!--เส้นขีด-->
+
+      <!-- หน้า 1-->
+      <form id="bookingForm">
+        <row class="inputForm">  
+            <div class="inputBooking">
+                <label for="originAirport">จาก* :</label>
+                <select id="originAirport" name="originAirport" placeholder="ต้นทาง" required>
+                   <option value="" disabled selected>ต้นทาง</option>
+                   <option value="BKK">กรุงเทพ(สุวรรณภูมิ) - ไทย [BKK]</option>
+                   <option value="DMK">กรุงเทพ(ดอนเมือง) - ไทย [DMK]</option>
+                   </select>
+             </div>
+  
+             <div class="inputBooking">
+                <label for="destinationAirport">ไป* :</label>
+                <select id="destinationAirport" name="destinationAirport" placeholder="ปลายทาง" required>
+                  <option value="" disabled selected>ปลายทาง</option>
+                  <option value="TPE">ไทเป - ไต้หวัน [TPE]</option>
+                  <option value="HKG">ฮ่องกง - ฮ่องกง [HKG]</option>
+                </select>
+             </div>
+    
+             <div class="inputBooking">
+                <label for="departureDate">วันที่เดินทาง:</label>
+                <input type="date" id="departureDate">
+                <!-- min="<?= date('y-m-d'); ?>" required -->
+             </div>
+    
+             <div class="inputBooking">
+                <label for="returnDate">วันที่เดินทางกลับ:</label>
+                <input type="date" id="returnDate">
+                <!-- min="<?= date('y-m-d'); ?>" required -->
+             </div>
+        </row>
+        
+            <fieldset id="departure" class="tripForm">
+                <legend>ขาไป</legend>
+                <div class="departureTrip">
+                    <label>
+                      <input type="checkbox" id="eveningGo" name="departureCheck" value="5000" onclick="limitCheckDeparture(this)">
+                      14:00 น. - 19:00 น.  5,000 THB/คน
+                    </label>
+                </div>
+
+                <div class="departureTrip">
+                  <label>
+                    <input type="checkbox" id="nightGo" name="departureCheck" value="12000" onclick="limitCheckDeparture(this)">
+                    20:10 น. - 23:15 น.  12,000 THB/คน
+                  </label>
+                </div>
+            </fieldset>
+
+            <fieldset id="return" class="tripForm">
+                <legend>ขากลับ</legend>
+                <div class="returnTrip">
+                  <label>
+                    <input type="checkbox" id="eveningBack" name="returnCheck" value="7000" onclick="limitCheckReturn(this)">
+                    13:00 น. - 16:00 น.  7,000 THB/คน
+                  </label>
+                </div>
+
+                <div class="returnTrip">
+                  <label>
+                    <input type="checkbox" id="nightBack" name="returnCheck" value="16000" onclick="limitCheckReturn(this)">
+                    16:55 น. - 19:50 น. 16,000 THB/คน
+                  </label>
+                </div>
+            </fieldset>
+            
+            <div class="countForm">
+                <label for="passengerCount">จำนวนผู้โดยสาร:</label>
+                <input type="number" id="passengerCount" min="1" value="1" onchange="updateTotalPrice()">
+            </div>
+
+            <div class="countForm">
+                <span class="textForm">ราคา: <span id="totalPrice"><strong>0</strong></span> บาท</span>
+            </div> 
+
+            <div class="buttonContainer">  
+                <button type="submit" class="button" id="nextBtn1" onclick="nextPage2()">Next</button> 
+            </div>
+      </form>
     </main>
     <script src="./script.js"></script>
   </body>
