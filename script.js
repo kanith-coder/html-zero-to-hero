@@ -48,3 +48,53 @@ function limitCheckDeparture(checkbox) {
   
     return 0;
   }
+
+//เก็บค่าข้อมูล bookingForm
+let saveInputBooking = ['', '', '', '']
+
+function saveDropdownValue() {
+  //ดึงข้อมูลที่ถูกเลือกจาก Dropdown
+  const dropdownGo = document.getElementById('originAirport');
+  const dropdownTo = document.getElementById('destinationAirport');
+  const dateGo = document.getElementById('departureDate');
+  const dateBack = document.getElementById('returnDate');
+
+
+  saveInputBooking[0] = dropdownGo.value;
+  saveInputBooking[1] = dropdownTo.value;
+  saveInputBooking[2] = dateGo.value;
+  saveInputBooking[3] = dateBack.value;
+
+    // แสดงค่าที่ถูกบันทึก
+  console.log('Next:', saveInputBooking);
+}
+
+
+//เก็บค่าข้อมูล Add Passenger
+let savedInputs = ['', '', '','', '', '', '', ''];
+
+function saveInputs() {
+  // ดึงค่าจาก input fields
+  const inputPassportNo = document.getElementById('passportNo');
+  const inputGender = document.getElementById('gender')
+  const inputTitleName = document.getElementById('titleName')
+  const inputFirstName = document.getElementById('firstName');
+  const inputMiddleName = document.getElementById('middleName');
+  const inputLastName = document.getElementById('lastName');
+  const inputEmail = document.getElementById('email');
+  const inputMobile = document.getElementById('mobile');
+
+  // บันทึกค่า
+  savedInputs[0] = inputPassportNo.value;
+  savedInputs[1] = inputGender.value;
+  savedInputs[2] = inputTitleName.value;
+  savedInputs[3] = inputFirstName.value;
+  savedInputs[4] = inputMiddleName.value;
+  savedInputs[5] = inputLastName.value;
+  savedInputs[6] = inputEmail.value;
+  savedInputs[7] = inputMobile.value;
+
+
+  // แสดงค่าที่ถูกบันทึก
+  console.log('Next:', savedInputs);
+}
