@@ -98,3 +98,26 @@ function saveInputs() {
   // แสดงค่าที่ถูกบันทึก
   console.log('Next:', savedInputs);
 }
+
+
+
+  document.getElementById(addPassenger).addEventListener('click', function() {
+    //clon passenger fieldset
+    let passengerContainer = document.getElementById('passengerContainer');
+    let lastPassengerFieldset = passengerContainer.lastElementChild;
+    let newPassengerFieldset = lastPassengerFieldset.cloneNode(true);
+
+    //update legend and ID for New passenger fieldset
+    let passengerCount = passengerContainer.childElementCount + 1;
+    newPassengerFieldset.querySelector('legend').innerText = "Passenger " + passengerCount;
+    newPassengerFieldset.id = "Passenger" + passengerCount;
+
+    //Clear input values
+    let inputElements = newPassengerFieldset.querySelectorAll("input, select");
+    inputElements.forEach(function(input) {
+      input.value = "";
+    });
+    
+    // Append the new passenger fieldset to the container
+    passengerContainer.appendChild(newPassengerFieldset);
+    });

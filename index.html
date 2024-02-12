@@ -104,65 +104,67 @@
         
       <h3>รายละเอียดผู้โดยสาร</h3>
 
-      <fieldset id="Passenger1" >
-        <legend>Passenger 1</legend> 
-
-        <div class="inputPersonal">
-          <label for="passportNo">PassportNo* : </label>
-          <input type="text" id="passportNo" name="passportNo" maxlength="9" placeholder="AA1122334" required>
-        </div>
-
-      <row class="passengerName">
+      <div id="passengerContainer">
+        <fieldset id="Passenger1" >
+          <legend>Passenger 1</legend> 
+  
           <div class="inputPersonal">
-              <label for="gender">Gender* : </label>
-              <select id="gender" name="gender" required>
-                <option disabled selected>Select</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-              </select>
+            <label for="passportNo">PassportNo* : </label>
+            <input type="text" id="passportNo" name="passportNo" maxlength="9" placeholder="AA1122334" required>
           </div>
   
+        <row class="passengerName">
             <div class="inputPersonal">
-              <label for="titleName">Title* : </label>
-                <select id="titleName" name="titleName" required>
-                  <option value="Mr">Mr.</option>
-                  <option value="Miss">Miss</option>
-                  <option value="Mrs">Mrs.</option>
+                <label for="gender">Gender* : </label>
+                <select id="gender" name="gender" required>
+                  <option disabled selected>Select</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
                 </select>
-            </div>  
+            </div>
+    
+              <div class="inputPersonal">
+                <label for="titleName">Title* : </label>
+                  <select id="titleName" name="titleName" required>
+                    <option value="Mr">Mr.</option>
+                    <option value="Miss">Miss</option>
+                    <option value="Mrs">Mrs.</option>
+                  </select>
+              </div>  
+    
+            <div class="inputPersonal">
+                <label for="firstName">First Name* : </label>
+                <input type="text" id="firstName" required>
+            </div>
+    
+            <div class="inputPersonal">
+                <label for="middleName">Middle Name : </label>
+                <input type="text" id="middleName" required>
+            </div>
+    
+            <div class="inputPersonal">
+                <label for="lastName">Last Name* : </label>
+                <input type="text" id="lastName" name="lastName" required>
+            </div>
+    
+        </row>
   
-          <div class="inputPersonal">
-              <label for="firstName">First Name* : </label>
-              <input type="text" id="firstName" required>
-          </div>
-  
-          <div class="inputPersonal">
-              <label for="middleName">Middle Name : </label>
-              <input type="text" id="middleName" required>
-          </div>
-  
-          <div class="inputPersonal">
-              <label for="lastName">Last Name* : </label>
-              <input type="text" id="lastName" name="lastName" required>
-          </div>
-  
-      </row>
-
-      <row >
-          <div class="inputPersonal">
-              <label for="email" >Email* : </label>
-              <input type="email" id="email" placeholder="emailaddress@email.com" required>
-          </div>
-       
-          <div class="inputPersonal">
-              <label for="mobile">Mobile* : </label>
-              <input type="number" id="mobile" name="mobile" placeholder="0XXXXXXXXX" maxlength="10"  required>
-          </div>
-      </row>
-      </fieldset>
-      <div class="buttonContainer">
-        <button type="button" class="button" id="backBtn1" onclick="prevPage1()">Back</button>
-        <button type="button" class="button" id="nextBtn2" onclick="nextPage3()">Next</button>
+        <row >
+            <div class="inputPersonal">
+                <label for="email" >Email* : </label>
+                <input type="email" id="email" placeholder="emailaddress@email.com" required>
+            </div>
+         
+            <div class="inputPersonal">
+                <label for="mobile">Mobile* : </label>
+                <input type="number" id="mobile" name="mobile" maxlength="10" placeholder="0XXXXXXXXX" required>
+            </div>
+        </row>
+        </fieldset>
+        <div class="buttonContainer">
+          <button type="button" class="button" id="backBtn1" onclick="prevPage1()">Back</button>
+          <button type="button" class="button" id="nextBtn2" onclick="nextPage3()">Next</button>
+        </div>
       </div>
     </form>  
     
