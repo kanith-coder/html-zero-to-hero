@@ -1,203 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
-    <title>Paper Airline</title>
-  </head>
-  <body>
-    <main>
-      <div class="container">
-        <h1>Paper Airline</h1>
-            <hr>  <!--เส้นขีด-->
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Paper Airline</title>
+</head>
+
+<body>
+  <main>
+    <div class="container">
+      <h1>Paper Airline</h1>
+      <hr> <!--เส้นขีด-->
 
       <!-- หน้า 1-->
       <form id="bookingForm">
-        <row class="inputForm">  
-            <div class="inputBooking">
-                <label for="originAirport">จาก* :</label>
-                <select id="originAirport" name="originAirport" placeholder="ต้นทาง" required>
-                   <option value="" disabled selected>ต้นทาง</option>
-                   <option value="BKK">กรุงเทพ(สุวรรณภูมิ) - ไทย [BKK]</option>
-                   <option value="DMK">กรุงเทพ(ดอนเมือง) - ไทย [DMK]</option>
-                   </select>
-             </div>
-  
-             <div class="inputBooking">
-                <label for="destinationAirport">ไป* :</label>
-                <select id="destinationAirport" name="destinationAirport" placeholder="ปลายทาง" required>
-                  <option value="" disabled selected>ปลายทาง</option>
-                  <option value="TPE">ไทเป - ไต้หวัน [TPE]</option>
-                  <option value="HKG">ฮ่องกง - ฮ่องกง [HKG]</option>
-                </select>
-             </div>
-    
-             <div class="inputBooking">
-                <label for="departureDate">วันที่เดินทาง:</label>
-                <input type="date" id="departureDate">
-                <!-- min="<?= date('y-m-d'); ?>" required -->
-             </div>
-    
-             <div class="inputBooking">
-                <label for="returnDate">วันที่เดินทางกลับ:</label>
-                <input type="date" id="returnDate">
-                <!-- min="<?= date('y-m-d'); ?>" required -->
-             </div>
+        <row class="inputForm">
+          <div class="inputBooking">
+            <label for="originAirport">จาก* :</label>
+            <select id="originAirport" name="originAirport" placeholder="ต้นทาง" required>
+              <option value="" disabled selected>ต้นทาง</option>
+              <option value="BKK">กรุงเทพ(สุวรรณภูมิ) - ไทย [BKK]</option>
+              <option value="DMK">กรุงเทพ(ดอนเมือง) - ไทย [DMK]</option>
+            </select>
+          </div>
+
+          <div class="inputBooking">
+            <label for="destinationAirport">ไป* :</label>
+            <select id="destinationAirport" name="destinationAirport" placeholder="ปลายทาง" required>
+              <option value="" disabled selected>ปลายทาง</option>
+              <option value="TPE">ไทเป - ไต้หวัน [TPE]</option>
+              <option value="HKG">ฮ่องกง - ฮ่องกง [HKG]</option>
+            </select>
+          </div>
+
+          <div class="inputBooking">
+            <label for="departureDate">วันที่เดินทาง:</label>
+            <input type="date" id="departureDate">
+            <!-- min="<?= date('y-m-d'); ?>" required -->
+          </div>
+
+          <div class="inputBooking">
+            <label for="returnDate">วันที่เดินทางกลับ:</label>
+            <input type="date" id="returnDate">
+            <!-- min="<?= date('y-m-d'); ?>" required -->
+          </div>
         </row>
-        
-            <fieldset id="departure" class="tripForm">
-                <legend>ขาไป</legend>
-                <div class="departureTrip">
-                    <label>
-                      <input type="checkbox" id="eveningGo" name="departureCheck" value="5000" onclick="limitCheckDeparture(this)">
-                      14:00 น. - 19:00 น.  5,000 THB/คน
-                    </label>
-                </div>
 
-                <div class="departureTrip">
-                  <label>
-                    <input type="checkbox" id="nightGo" name="departureCheck" value="12000" onclick="limitCheckDeparture(this)">
-                    20:10 น. - 23:15 น.  12,000 THB/คน
-                  </label>
-                </div>
-            </fieldset>
+        <fieldset id="departure" class="tripForm">
+          <legend>ขาไป</legend>
+          <div class="departureTrip">
+            <label>
+              <input type="checkbox" id="eveningGo" name="departureCheck" value="5000"
+                onclick="limitCheckDeparture(this)">
+              14:00 น. - 19:00 น. 5,000 THB/คน
+            </label>
+          </div>
 
-            <fieldset id="return" class="tripForm">
-                <legend>ขากลับ</legend>
-                <div class="returnTrip">
-                  <label>
-                    <input type="checkbox" id="eveningBack" name="returnCheck" value="7000" onclick="limitCheckReturn(this)">
-                    13:00 น. - 16:00 น.  7,000 THB/คน
-                  </label>
-                </div>
+          <div class="departureTrip">
+            <label>
+              <input type="checkbox" id="nightGo" name="departureCheck" value="12000"
+                onclick="limitCheckDeparture(this)">
+              20:10 น. - 23:15 น. 12,000 THB/คน
+            </label>
+          </div>
+        </fieldset>
 
-                <div class="returnTrip">
-                  <label>
-                    <input type="checkbox" id="nightBack" name="returnCheck" value="16000" onclick="limitCheckReturn(this)">
-                    16:55 น. - 19:50 น. 16,000 THB/คน
-                  </label>
-                </div>
-            </fieldset>
-            
-            <div class="countForm">
-                <label for="passengerCount">จำนวนผู้โดยสาร:</label>
-                <input type="number" id="passengerCount" min="1" value="1" onchange="updateTotalPrice()">
-            </div>
+        <fieldset id="return" class="tripForm">
+          <legend>ขากลับ</legend>
+          <div class="returnTrip">
+            <label>
+              <input type="checkbox" id="eveningBack" name="returnCheck" value="7000" onclick="limitCheckReturn(this)">
+              13:00 น. - 16:00 น. 7,000 THB/คน
+            </label>
+          </div>
 
-            <div class="countForm">
-                <span class="textForm">ราคา: <span id="totalPrice"><strong>0</strong></span> บาท</span>
-            </div> 
+          <div class="returnTrip">
+            <label>
+              <input type="checkbox" id="nightBack" name="returnCheck" value="16000" onclick="limitCheckReturn(this)">
+              16:55 น. - 19:50 น. 16,000 THB/คน
+            </label>
+          </div>
+        </fieldset>
 
-            <div class="buttonContainer">  
-                <button type="submit" class="button" id="nextBtn1" onclick="nextPage2()">Next</button> 
-            </div>
+        <div class="countForm">
+          <label for="passengerCount">จำนวนผู้โดยสาร:</label>
+          <input type="number" id="passengerCount" min="1" value="1" onchange="updateTotalPrice()">
+        </div>
+
+        <div class="countForm">
+          <span class="textForm">ราคา: <span id="totalPrice"><strong>0</strong></span> บาท</span>
+        </div>
+
+        <div class="buttonContainer">
+          <button type="submit" class="button" id="nextBtn1" onclick="nextPage2()">Next</button>
+        </div>
       </form>
 
       <!-- หน้า 2 -->
-      <form id="personalInfoForm" > 
+      <form id="personalInfoForm">
         <!-- style="display:none;" ไม่แสดง หน้า2-->
 
-      <div class="buttonContainer">  
-        <button type="button" class="button" id="addPassenger">Add Passenger</button> 
-      </div>
-        
-      <h3>รายละเอียดผู้โดยสาร</h3>
+        <div class="buttonContainer">
+          <button type="button" class="button" id="addPassenger">Add Passenger</button>
+        </div>
 
-      <div id="passengerContainer">
-        <fieldset id="Passenger1" >
-          <legend>Passenger 1</legend> 
-  
-          <div class="inputPersonal">
-            <label for="passportNo">PassportNo* : </label>
-            <input type="text" id="passportNo" name="passportNo" maxlength="9" placeholder="AA1122334" required>
-          </div>
-  
-        <row class="passengerName">
-            <div class="inputPersonal">
+        <h3>รายละเอียดผู้โดยสาร</h3>
+
+        <div id="passengerContainer">
+          <fieldset id="passenger1">
+            <legend>Passenger 1</legend>
+            <row class="passport">
+              <div class="inputPersonal">
+                <label for="passportNo">PassportNo* : </label>
+                <input type="text" id="passportNo" name="passportNo" maxlength="9" placeholder="AA1122334" required>
+              </div>
+            </row>
+
+            <row class="passengerName">
+              <div class="inputPersonal">
                 <label for="gender">Gender* : </label>
                 <select id="gender" name="gender" required>
                   <option disabled selected>Select</option>
                   <option value="Male">Male</option>
                   <option value="Female">Female</option>
                 </select>
-            </div>
-    
+              </div>
+
               <div class="inputPersonal">
                 <label for="titleName">Title* : </label>
-                  <select id="titleName" name="titleName" required>
-                    <option value="Mr">Mr.</option>
-                    <option value="Miss">Miss</option>
-                    <option value="Mrs">Mrs.</option>
-                  </select>
-              </div>  
-    
-            <div class="inputPersonal">
+                <select id="titleName" name="titleName" required>
+                  <option value="Mr">Mr.</option>
+                  <option value="Miss">Miss</option>
+                  <option value="Mrs">Mrs.</option>
+                </select>
+              </div>
+
+              <div class="inputPersonal">
                 <label for="firstName">First Name* : </label>
                 <input type="text" id="firstName" required>
-            </div>
-    
-            <div class="inputPersonal">
+              </div>
+
+              <div class="inputPersonal">
                 <label for="middleName">Middle Name : </label>
                 <input type="text" id="middleName" required>
-            </div>
-    
-            <div class="inputPersonal">
+              </div>
+
+              <div class="inputPersonal">
                 <label for="lastName">Last Name* : </label>
                 <input type="text" id="lastName" name="lastName" required>
-            </div>
-    
-        </row>
-  
-        <row >
-            <div class="inputPersonal">
-                <label for="email" >Email* : </label>
+              </div>
+
+            </row>
+
+            <row>
+              <div class="inputPersonal">
+                <label for="email">Email* : </label>
                 <input type="email" id="email" placeholder="emailaddress@email.com" required>
-            </div>
-         
-            <div class="inputPersonal">
+              </div>
+
+              <div class="inputPersonal">
                 <label for="mobile">Mobile* : </label>
                 <input type="number" id="mobile" name="mobile" maxlength="10" placeholder="0XXXXXXXXX" required>
-            </div>
-        </row>
-        </fieldset>
+              </div>
+            </row>
+          </fieldset>
+        </div>
         <div class="buttonContainer">
           <button type="button" class="button" id="backBtn1" onclick="prevPage1()">Back</button>
           <button type="button" class="button" id="nextBtn2" onclick="nextPage3()">Next</button>
         </div>
-      </div>
-    </form>  
-    
-    <!-- หน้า 3 -->
-    <form id="additionalInfoForm" >
-      <!-- style="display:none;" ไม่แสดง หน้า3-->
-      <fieldset id="totalTicket">
-        <legend>Paper Airline Ticket</legend>
+      </form>
 
-        <div class="passengerForm">
-          <div id="dateTripGo" class="ticket">วัน อังคาร ที่ 20 กุมภาพันธ์ 2024 </div>
-          <div id="detailGo" class="ticket">
-            <span id="originTimeGo" class="ticket">08:15</span>
-            <span id="originGo" class="=ticket">กรุงเทพ (สุวรรณภูมิ) -ไทย [BKK]</span>
-            <span id="destinatTimeGo" class="ticket">12:45</span>
-            <span id="destinatGo" class="ticket">ไทเป - ไต้หวัน [TPE]</span>
+      <!-- หน้า 3 -->
+      <form id="additionalInfoForm">
+        <!-- style="display:none;" ไม่แสดง หน้า3-->
+        <fieldset id="totalTicket">
+          <legend>Paper Airline Ticket</legend>
+
+          <div class="passengerForm">
+            <div id="dateTripGo" class="ticket">วัน อังคาร ที่ 20 กุมภาพันธ์ 2024 </div>
+            <div id="detailGo" class="ticket">
+              <span id="originTimeGo" class="ticket">08:15</span>
+              <span id="originGo" class="=ticket">กรุงเทพ (สุวรรณภูมิ) -ไทย [BKK]</span>
+              <span id="destinatTimeGo" class="ticket">12:45</span>
+              <span id="destinatGo" class="ticket">ไทเป - ไต้หวัน [TPE]</span>
+            </div>
           </div>
-        </div>
 
-        <div class="passengerForm">
-          <div id="dateTripBack" class="ticket">วัน เสาร์ ที่ 24 กุมภาพันธ์ 2024 </div>
-          <div id="detailBack" class="ticket">
-            <span id="originTimeBack" class="ticket">13:55</span>
-            <span id="originBack" class="=ticket">ไทเป - ไต้หวัน [TPE]</span>
-            <span id="destinatTimeBack" class="ticket">16:50</span>
-            <span id="destinatBack" class="ticket">กรุงเทพ (สุวรรณภูมิ) -ไทย [BKK]</span>
+          <div class="passengerForm">
+            <div id="dateTripBack" class="ticket">วัน เสาร์ ที่ 24 กุมภาพันธ์ 2024 </div>
+            <div id="detailBack" class="ticket">
+              <span id="originTimeBack" class="ticket">13:55</span>
+              <span id="originBack" class="=ticket">ไทเป - ไต้หวัน [TPE]</span>
+              <span id="destinatTimeBack" class="ticket">16:50</span>
+              <span id="destinatBack" class="ticket">กรุงเทพ (สุวรรณภูมิ) -ไทย [BKK]</span>
+            </div>
           </div>
-        </div>
 
-        <!-- ขีดเส้นขั้นข้อมูล -->
-        <hr> 
+          <!-- ขีดเส้นขั้นข้อมูล -->
+          <hr>
 
-        <div class="passengerForm">
+          <div class="passengerForm">
 
             <table class="totalTicket">
               <tr>
@@ -217,7 +222,7 @@
               </tr>
             </table>
 
-          <!-- <div class="totalTicket">
+            <!-- <div class="totalTicket">
             <span id="shipingCost">ค่าบริการขนส่ง ฿</span>
             <span class="totaoSpace" id="excludingVat">52336.45</span>
           </div>
@@ -233,24 +238,25 @@
           </div>
         </div> -->
 
-        <div class="passengerForm">
-          <div id="passengerNo1">
-            <span>Passanger1 <span><strong>Mr. Kanit Coders</strong></span>
-          </div>
-          <div id="passengerNo2">
-            <span>Passanger2 <span><strong>Mrs. Sudo Coders</strong></span>
-          </div>
+            <div class="passengerForm">
+              <div id="passengerNo1">
+                <span>Passanger1 <span><strong>Mr. Kanit Coders</strong></span>
+              </div>
+              <div id="passengerNo2">
+                <span>Passanger2 <span><strong>Mrs. Sudo Coders</strong></span>
+              </div>
+            </div>
+        </fieldset>
+
+        <div class="buttonContainer">
+          <button type="button" class="button" id="backBtn2" onclick="prevPage2()">Back</button>
+          <button type="button" class="button" id="submitBtn" onclick="submitForm()">Confirm</button>
         </div>
-      </fieldset>
+      </form>
+    </div>
 
-      <div class="buttonContainer">
-        <button type="button" class="button" id="backBtn2" onclick="prevPage2()">Back</button>
-        <button type="button" class="button" id="submitBtn" onclick="submitForm()">Confirm</button>
-      </div>
-    </form>
-  </div>
+  </main>
+  <script src="./script.js"></script>
+</body>
 
-    </main>
-    <script src="./script.js"></script>
-  </body>
 </html>
