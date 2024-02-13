@@ -141,4 +141,6 @@ document.getElementById('addPassenger').addEventListener('click', function() {
 
   // Append the new passenger fieldset to the container
   passengerContainer.appendChild(newPassengerFieldset);
+
+  console.log('Added passenger form');
 });
