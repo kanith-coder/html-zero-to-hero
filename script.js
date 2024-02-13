@@ -1,9 +1,17 @@
 console.log('Paper Airlines is ready to take off! 🛫');
-//การทำงานปุ่ม
-function nextPage2() {
+const form = document.getElementById('bookingForm');
+
+form.addEventListener("submit", function(event) {
+  e.preventDefault();
+  saveDropdownValue();
   document.getElementById('bookingForm').style.display = 'none';          //page1
   document.getElementById('personalInfoForm').style.display = 'block';    //page2
-}
+});
+//การทำงานปุ่ม
+// function nextPage2() {
+//   document.getElementById('bookingForm').style.display = 'none';          //page1
+//   document.getElementById('personalInfoForm').style.display = 'block';    //page2
+// }
 
 function prevPage1() {
   document.getElementById('bookingForm').style.display = 'block';       //page1
