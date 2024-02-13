@@ -122,21 +122,21 @@ function saveInputs() {
 
 
 //**เพิ่ม Passenger Form */
-document.getElementById("addPassenger").addEventListener("click", function() {
+document.getElementById('addPassenger').addEventListener('click', function() {
   // Clone the existing passenger fieldset
-  var passengerContainer = document.getElementById("passengerContainer");
-  var lastPassengerFieldset = passengerContainer.lastElementChild;
-  var newPassengerFieldset = lastPassengerFieldset.cloneNode(true);
+  let passengerContainer = document.getElementById('passengerContainer');
+  let lastPassengerFieldset = passengerContainer.lastElementChild;
+  let newPassengerFieldset = lastPassengerFieldset.cloneNode(true);
 
   // Update the legend and ID for the new passenger fieldset
-  var passengerCount = passengerContainer.childElementCount + 1;
-  newPassengerFieldset.querySelector("legend").innerText = "Passenger " + passengerCount;
-  newPassengerFieldset.id = "passenger" + passengerCount;
+  let passengerCount = passengerContainer.childElementCount + 1;
+  newPassengerFieldset.querySelector('legend').innerText = 'Passenger ' + passengerCount;
+  newPassengerFieldset.id = 'passenger' + passengerCount;
 
   // Clear input values in the new passenger fieldset
-  var inputElements = newPassengerFieldset.querySelectorAll("input, select");
+  let inputElements = newPassengerFieldset.querySelectorAll('input, select');
   inputElements.forEach(function(input) {
-    input.value = "";
+    input.value = '';
   });
 
   // Append the new passenger fieldset to the container
