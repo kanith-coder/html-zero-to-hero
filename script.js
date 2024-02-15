@@ -1,5 +1,6 @@
 console.log('Paper Airlines is ready to take off! 🛫');
 
+
 const itinerary = {
   origin: 'กรุงเทพ(สุวรรณภูมิ) - ไทย [BKK]',
   destination: 'ไทเป - ไต้หวัน [TPE]',
@@ -43,7 +44,15 @@ const itinerary = {
 // แสดงข้อมูลที่ถูกบันทึก
 function showItinerary() {
   const dateTripGo = document.getElementById('dateTripGo');
-  dateTripGo.innerText = itinerary.departureDate.date;
+  dateTripGo.innerText = formatDate(itinerary.departureDate.date);
+  const originTimeGo = document.getElementById('originTimeGo');
+  originTimeGo.innerText = itinerary.departureDate.departTime;
+  const destinationTimeGo = document.getElementById('destinationTimeGo');
+  destinationTimeGo.innerText = itinerary.departureDate.arriveTime;
+  const originGo = document.getElementById('originGo');
+  originGo.innerText = itinerary.origin;
+  const destinationGo = document.getElementById('destinationGo');
+  destinationGo.innerText = itinerary.destination;
 }
 
 showItinerary();
