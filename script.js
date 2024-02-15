@@ -43,16 +43,29 @@ const itinerary = {
 
 // แสดงข้อมูลที่ถูกบันทึก
 function showItinerary() {
-  const dateTripGo = document.getElementById('dateTripGo');
+  //ขาไป
+  const dateTripGo = document.getElementById('dateTripGo');    //วันที่เดินทางไป
   dateTripGo.innerText = formatDate(itinerary.departureDate.date);
-  const originTimeGo = document.getElementById('originTimeGo');
+  const originTimeGo = document.getElementById('originTimeGo');  //เวลาออก
   originTimeGo.innerText = itinerary.departureDate.departTime;
-  const destinationTimeGo = document.getElementById('destinationTimeGo');
-  destinationTimeGo.innerText = itinerary.departureDate.arriveTime;
-  const originGo = document.getElementById('originGo');
+  const originGo = document.getElementById('originGo');   //สนามบินต้นทาง
   originGo.innerText = itinerary.origin;
-  const destinationGo = document.getElementById('destinationGo');
+  const destinationTimeGo = document.getElementById('destinatTimeGo');  //เวลาถึง
+  destinationTimeGo.innerText = itinerary.departureDate.arriveTime;
+  const destinationGo = document.getElementById('destinatGo'); //สนามบินปลายทาง
   destinationGo.innerText = itinerary.destination;
+
+  //ขากลับ
+  const dateTripBack = document.getElementById('dateTripBack');    //วันที่เดินทางกลับ
+  dateTripBack.innerText = formatDate(itinerary.returnDate.date);
+  const originTimeBack = document.getElementById('originTimeBack');  //เวลาออก
+  originTimeBack.innerText = itinerary.returnDate.departTime;
+  const originBack = document.getElementById('originBack');   //สนามบินต้นทาง
+  originBack.innerText = itinerary.destination;
+  const destinatTimeBack = document.getElementById('destinatTimeBack');  //เวลาถึง
+  destinatTimeBack.innerText = itinerary.returnDate.arriveTime;
+  const destinatBack = document.getElementById('destinatBack'); //สนามบินปลายทาง
+  destinatBack.innerText = itinerary.origin;
 }
 
 showItinerary();
