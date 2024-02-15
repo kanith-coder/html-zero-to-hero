@@ -1,4 +1,53 @@
 console.log('Paper Airlines is ready to take off! 🛫');
+
+const itinerary = {
+  origin: 'กรุงเทพ(สุวรรณภูมิ) - ไทย [BKK]',
+  destination: 'ไทเป - ไต้หวัน [TPE]',
+  departureDate: {
+    flightNumber: 'PG271',
+    date: '2022-10-01',
+    departTime: '08:15',
+    arriveTime: '10:00'
+  },
+  returnDate: {
+    flightNumber: 'PG272',
+    date: '2022-10-10',
+    departTime: '12:00',
+    arriveTime: '14:00'
+  },
+  passengerCount: 1,
+  totalPrice: 0,
+  passengers: [
+    {
+      passportNo: 'A1234567',
+      titleName: 'Mr.',
+      firstName: 'John',
+      middleName: '',
+      lastName: 'Doe',
+      gender: '',
+      email: '',
+      mobile: ''
+    },{
+      passportNo: 'A1234567',
+      titleName: 'Mrs.',
+      firstName: 'Jane',
+      middleName: '',
+      lastName: 'Doe',
+      gender: '',
+      email: '',
+      mobile: ''
+    }
+  ]
+};
+
+// แสดงข้อมูลที่ถูกบันทึก
+function showItinerary() {
+  const dateTripGo = document.getElementById('dateTripGo');
+  dateTripGo.innerText = itinerary.departureDate.date;
+}
+
+showItinerary();
+
 const form = document.getElementById('bookingForm');
 
 form.addEventListener("submit", function(event) {
