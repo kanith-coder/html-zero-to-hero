@@ -1,105 +1,6 @@
 console.log('Paper Airlines is ready to take off! 🛫');
 
 
-const itinerary = {
-  origin: 'กรุงเทพ(สุวรรณภูมิ) - ไทย [BKK]',
-  destination: 'ไทเป - ไต้หวัน [TPE]',
-  departureDate: {
-    flightNumber: 'PG271',
-    date: '2022-10-01',
-    departTime: '08:15',
-    arriveTime: '10:00'
-  },
-  returnDate: {
-    flightNumber: 'PG272',
-    date: '2022-10-10',
-    departTime: '12:00',
-    arriveTime: '14:00'
-  },
-  passengerCount: 1,
-  totalPrice: 0,
-  passengers: [
-    {
-      passportNo: 'A1234567',
-      titleName: 'Mr.',
-      firstName: 'John',
-      middleName: '',
-      lastName: 'Doe',
-      gender: '',
-      email: '',
-      mobile: ''
-    },{
-      passportNo: 'A1234567',
-      titleName: 'Mrs.',
-      firstName: 'Jane',
-      middleName: '',
-      lastName: 'Doe',
-      gender: '',
-      email: '',
-      mobile: ''
-    }
-  ]
-};
-
-// แสดงข้อมูลที่ถูกบันทึก
-function showItinerary() {
-  //ขาไป
-  const dateTripGo = document.getElementById('dateTripGo');    //วันที่เดินทางไป
-  dateTripGo.innerText = formatDate(itinerary.departureDate.date);
-  const originTimeGo = document.getElementById('originTimeGo');  //เวลาออก
-  originTimeGo.innerText = itinerary.departureDate.departTime;
-  const originGo = document.getElementById('originGo');   //สนามบินต้นทาง
-  originGo.innerText = itinerary.origin;
-  const destinationTimeGo = document.getElementById('destinatTimeGo');  //เวลาถึง
-  destinationTimeGo.innerText = itinerary.departureDate.arriveTime;
-  const destinationGo = document.getElementById('destinatGo'); //สนามบินปลายทาง
-  destinationGo.innerText = itinerary.destination;
-
-  //ขากลับ
-  const dateTripBack = document.getElementById('dateTripBack');    //วันที่เดินทางกลับ
-  dateTripBack.innerText = formatDate(itinerary.returnDate.date);
-  const originTimeBack = document.getElementById('originTimeBack');  //เวลาออก
-  originTimeBack.innerText = itinerary.returnDate.departTime;
-  const originBack = document.getElementById('originBack');   //สนามบินต้นทาง
-  originBack.innerText = itinerary.destination;
-  const destinatTimeBack = document.getElementById('destinatTimeBack');  //เวลาถึง
-  destinatTimeBack.innerText = itinerary.returnDate.arriveTime;
-  const destinatBack = document.getElementById('destinatBack'); //สนามบินปลายทาง
-  destinatBack.innerText = itinerary.origin;
-}
-
-showItinerary();
-
-const form = document.getElementById('bookingForm');
-
-form.addEventListener("submit", function(event) {
-  e.preventDefault();
-  saveDropdownValue();
-  document.getElementById('bookingForm').style.display = 'none';          //page1
-  document.getElementById('personalInfoForm').style.display = 'block';    //page2
-});
-//การทำงานปุ่ม
-// function nextPage2() {
-//   document.getElementById('bookingForm').style.display = 'none';          //page1
-//   document.getElementById('personalInfoForm').style.display = 'block';    //page2
-// }
-
-function prevPage1() {
-  document.getElementById('bookingForm').style.display = 'block';       //page1
-  document.getElementById('personalInfoForm').style.display = 'none';   //page2
-}
-
-function nextPage3() {
-  document.getElementById('personalInfoForm').style.display = 'none';
-  document.getElementById('additionalInfoForm').style.display = 'block';
-}
-
-function prevPage2() {
-  document.getElementById('personalInfoForm').style.display = 'block';       
-  document.getElementById('additionalInfoForm').style.display = 'none';   //page2
-}
-
-
 // **ขาไป** ให้checkbox ได้ 1รายการ
 function limitCheckDeparture(checkbox) {
     var checkboxes = document.getElementsByName('departureCheck');
@@ -149,55 +50,6 @@ function limitCheckDeparture(checkbox) {
     return 0;
   }
 
-//เก็บค่าข้อมูล bookingForm
-let saveInputBooking = ['', '', '', '']
-
-function saveDropdownValue() {
-  //ดึงข้อมูลที่ถูกเลือกจาก Dropdown
-  const dropdownGo = document.getElementById('originAirport');
-  const dropdownTo = document.getElementById('destinationAirport');
-  const dateGo = document.getElementById('departureDate');
-  const dateBack = document.getElementById('returnDate');
-
-
-  saveInputBooking[0] = dropdownGo.value;
-  saveInputBooking[1] = dropdownTo.value;
-  saveInputBooking[2] = dateGo.value;
-  saveInputBooking[3] = dateBack.value;
-
-    // แสดงค่าที่ถูกบันทึก
-  console.log('Next:', saveInputBooking);
-}
-
-
-//เก็บค่าข้อมูล Add Passenger
-let savedInputs = ['', '', '','', '', '', '', ''];
-
-function saveInputs() {
-  // ดึงค่าจาก input fields
-  const inputPassportNo = document.getElementById('passportNo');
-  const inputGender = document.getElementById('gender')
-  const inputTitleName = document.getElementById('titleName')
-  const inputFirstName = document.getElementById('firstName');
-  const inputMiddleName = document.getElementById('middleName');
-  const inputLastName = document.getElementById('lastName');
-  const inputEmail = document.getElementById('email');
-  const inputMobile = document.getElementById('mobile');
-
-  // บันทึกค่า
-  savedInputs[0] = inputPassportNo.value;
-  savedInputs[1] = inputGender.value;
-  savedInputs[2] = inputTitleName.value;
-  savedInputs[3] = inputFirstName.value;
-  savedInputs[4] = inputMiddleName.value;
-  savedInputs[5] = inputLastName.value;
-  savedInputs[6] = inputEmail.value;
-  savedInputs[7] = inputMobile.value;
-
-
-  // แสดงค่าที่ถูกบันทึก
-  console.log('Next:', savedInputs);
-}
 
 
 //**เพิ่ม Passenger Form */
@@ -223,3 +75,28 @@ document.getElementById('addPassenger').addEventListener('click', function() {
 
   console.log('Added passenger form');
 });
+
+
+
+function submitForm() {
+  const originAirport = document.getElementById('originAirport').value;
+  const destinationAirport = document.getElementById('destinationAirport').value;
+  const dateElement = document.getElementById('departureDate');
+  const departureDate = dateElement.value;
+  const returnDate = document.getElementById('returnDate').value;
+
+
+
+  // นำข้อมูลไปแสดงในหน้าสรุป
+  displaySummary(originAirport, destinationAirport, departureDate);
+
+}
+
+function displaySummary(originAirport, destinationAirport, departureDate) {
+  // นำข้อมูลไปแสดงในหน้าสรุป
+  document.getElementById("originGo").innerText = originAirport;
+  document.getElementById("destinatGo").innerText = destinationAirport;
+  document.getElementById("dateTripGo").innerText = formatDate(departureDate);
+
+}
+
