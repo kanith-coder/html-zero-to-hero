@@ -28,7 +28,7 @@ function getFulloriginName(originAirport) {
       case "DMK":
         return "กรุงเทพ(ดอนเมือง) - ไทย [DMK]";
       default:
-        return "ไม่ระบุต้นทาง";
+        return "";
     }
   }
 
@@ -40,30 +40,30 @@ function getFullDestinationName(destinationAirport,) {
       case "HKG":
         return "ฮ่องกง - ฮ่องกง [HKG]";
       default:
-        return "ไม่ระบุปลายทาง";
+        return "";
     }
   }
 
   
-  function getFulloriginName(originAirport) {
-    switch (originAirport) {
+  function getFullDestinatBackName (destinatBack) {
+    switch (destinatBack) {
       case "BKK":
         return "กรุงเทพ(สุวรรณภูมิ) - ไทย [BKK]";
       case "DMK":
         return "กรุงเทพ(ดอนเมือง) - ไทย [DMK]";
       default:
-        return "ไม่ระบุต้นทาง";
+        return "";
     }
   }
 
 // เพิ่มฟังก์ชั่นเพื่อรับรหัสสนามบินและคืนชื่อเต็มของปลายทาง
-function getFullDestinationName(destinationAirport,) {
-    switch (destinationAirport) {
+function getFullorigiBackName (originBack,) {
+    switch (originBack) {
       case "TPE":
         return "ไทเป - ไต้หวัน [TPE]";
       case "HKG":
-        return "ฮ่องกง - ฮ่องกง [HKG]";
+        return "ฮ่องกง - ฮ่องกง [HKG]1";
       default:
-        return "ไม่ระบุปลายทาง";
+        return "";
     }
   }

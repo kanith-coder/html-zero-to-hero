@@ -88,14 +88,15 @@ function submitForm() {
   const returnDateElement = document.getElementById('returnDate');
   const returnDate = returnDateElement.value;
 
-  const originBack = document.getElementById('originBack').value;
+  const originBack = document.getElementById('destinationAirport').value;
+  const destinatBack = document.getElementById('originAirport').value;
 
   // นำข้อมูลไปแสดงในหน้าสรุป
-  displaySummary(departureDate, originAirport, destinationAirport, returnDate, originBack);
+  displaySummary(departureDate, originAirport, destinationAirport, returnDate, originBack, destinatBack);
 
 }
 
-function displaySummary(departureDate, originAirport, destinationAirport, returnDate, originBack) {
+function displaySummary(departureDate, originAirport, destinationAirport, returnDate, originBack, destinatBack) {
   // นำข้อมูลไปแสดงในหน้าสรุป
 
   document.getElementById("dateTripGo").innerText = formatDate(departureDate);
@@ -103,6 +104,7 @@ function displaySummary(departureDate, originAirport, destinationAirport, return
   document.getElementById("destinatGo").innerText = getFullDestinationName(destinationAirport);
 
   document.getElementById("dateTripBack").innerText = formatDate(returnDate);
-  document.getElementById("originBack").innerText = getFullDestinationName(originBack);
+  document.getElementById("originBack").innerText = getFullorigiBackName(originBack);
+  document.getElementById("destinatBack").innerText = getFullDestinatBackName(destinatBack);
 }
 
