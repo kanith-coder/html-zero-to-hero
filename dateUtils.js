@@ -1,15 +1,69 @@
-function formatDate(date) {
-    // Input string date
-    var dateString = "2024-02-15"; // Assuming the format is YYYY-MM-DD
+// function formatDate(date) {
+//     // Input string date
+//     // var dateString = "2024-02-15"; // Assuming the format is YYYY-MM-DD
 
-    // Convert string to Date object
-    var dateObject = new Date(dateString);
+//     // Convert string to Date object
+//     let date  = new Date(dateString);
 
-    // Define the desired date format with month name and day of the week
-    var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+//     // Define the desired date format with month name and day of the week
+//     var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
-    // Format the date using Intl.DateTimeFormat
-    var formattedDate = new Intl.DateTimeFormat('en-US', options).format(dateObject);
+//     // Format the date using Intl.DateTimeFormat
+//     var formattedDate = date.toLocaleDateString('th-TH', options);
 
-    return formattedDate;
-}
+//     return formattedDate;
+// }
+
+function formatDate(dateString) {
+    const options = { weekday: 'long',year: 'numeric', month: 'long', day: 'numeric' };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  }
+
+
+// เพิ่มฟังก์ชั่นเพื่อรับรหัสสนามบินและคืนชื่อเต็มของต้นทาง
+function getFulloriginName(originAirport) {
+    switch (originAirport) {
+      case "BKK":
+        return "กรุงเทพ(สุวรรณภูมิ) - ไทย [BKK]";
+      case "DMK":
+        return "กรุงเทพ(ดอนเมือง) - ไทย [DMK]";
+      default:
+        return "ไม่ระบุต้นทาง";
+    }
+  }
+
+// เพิ่มฟังก์ชั่นเพื่อรับรหัสสนามบินและคืนชื่อเต็มของปลายทาง
+function getFullDestinationName(destinationAirport,) {
+    switch (destinationAirport) {
+      case "TPE":
+        return "ไทเป - ไต้หวัน [TPE]";
+      case "HKG":
+        return "ฮ่องกง - ฮ่องกง [HKG]";
+      default:
+        return "ไม่ระบุปลายทาง";
+    }
+  }
+
+  
+  function getFulloriginName(originAirport) {
+    switch (originAirport) {
+      case "BKK":
+        return "กรุงเทพ(สุวรรณภูมิ) - ไทย [BKK]";
+      case "DMK":
+        return "กรุงเทพ(ดอนเมือง) - ไทย [DMK]";
+      default:
+        return "ไม่ระบุต้นทาง";
+    }
+  }
+
+// เพิ่มฟังก์ชั่นเพื่อรับรหัสสนามบินและคืนชื่อเต็มของปลายทาง
+function getFullDestinationName(destinationAirport,) {
+    switch (destinationAirport) {
+      case "TPE":
+        return "ไทเป - ไต้หวัน [TPE]";
+      case "HKG":
+        return "ฮ่องกง - ฮ่องกง [HKG]";
+      default:
+        return "ไม่ระบุปลายทาง";
+    }
+  }

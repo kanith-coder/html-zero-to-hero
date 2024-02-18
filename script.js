@@ -79,24 +79,30 @@ document.getElementById('addPassenger').addEventListener('click', function() {
 
 
 function submitForm() {
+  const departureDateElement = document.getElementById('departureDate');
+  const departureDate = departureDateElement.value;
+  
   const originAirport = document.getElementById('originAirport').value;
   const destinationAirport = document.getElementById('destinationAirport').value;
-  const dateElement = document.getElementById('departureDate');
-  const departureDate = dateElement.value;
-  const returnDate = document.getElementById('returnDate').value;
 
+  const returnDateElement = document.getElementById('returnDate');
+  const returnDate = returnDateElement.value;
 
+  const originBack = document.getElementById('originBack').value;
 
   // นำข้อมูลไปแสดงในหน้าสรุป
-  displaySummary(originAirport, destinationAirport, departureDate);
+  displaySummary(departureDate, originAirport, destinationAirport, returnDate, originBack);
 
 }
 
-function displaySummary(originAirport, destinationAirport, departureDate) {
+function displaySummary(departureDate, originAirport, destinationAirport, returnDate, originBack) {
   // นำข้อมูลไปแสดงในหน้าสรุป
-  document.getElementById("originGo").innerText = originAirport;
-  document.getElementById("destinatGo").innerText = destinationAirport;
-  document.getElementById("dateTripGo").innerText = formatDate(departureDate);
 
+  document.getElementById("dateTripGo").innerText = formatDate(departureDate);
+  document.getElementById("originGo").innerText = getFulloriginName(originAirport);
+  document.getElementById("destinatGo").innerText = getFullDestinationName(destinationAirport);
+
+  document.getElementById("dateTripBack").innerText = formatDate(returnDate);
+  document.getElementById("originBack").innerText = getFullDestinationName(originBack);
 }
 
