@@ -91,12 +91,15 @@ function submitForm() {
   const originBack = document.getElementById('destinationAirport').value;
   const destinatBack = document.getElementById('originAirport').value;
 
+  //ยอดเงิน
+  const totalPrice = document.getElementById('totalPrice').value;
+
   // นำข้อมูลไปแสดงในหน้าสรุป
-  displaySummary(departureDate, originAirport, destinationAirport, returnDate, originBack, destinatBack);
+  displaySummary(departureDate, originAirport, destinationAirport, returnDate, originBack, destinatBack, totalPrice);
 
 }
 
-function displaySummary(departureDate, originAirport, destinationAirport, returnDate, originBack, destinatBack) {
+function displaySummary(departureDate, originAirport, destinationAirport, returnDate, originBack, destinatBack, totalPrice) {
   // นำข้อมูลไปแสดงในหน้าสรุป
 
   document.getElementById("dateTripGo").innerText = formatDate(departureDate);
@@ -106,5 +109,8 @@ function displaySummary(departureDate, originAirport, destinationAirport, return
   document.getElementById("dateTripBack").innerText = formatDate(returnDate);
   document.getElementById("originBack").innerText = getFullorigiBackName(originBack);
   document.getElementById("destinatBack").innerText = getFullDestinatBackName(destinatBack);
+
+  //แสดงราคา
+  document.getElementById("totalAmount").innerText = totalPrice;
 }
 
