@@ -75,14 +75,19 @@ function showItinerary() {
 }
 
 
-
-
 function updateItinerary()  {
   const valueOrigin = document.getElementById('originAirport').value;
+  //
   const valueDepartureDate = document.getElementById('departureDate').value;
+  //
   const valueDestinationAirport = document.getElementById('destinationAirport').value;
 
-  
+  const valueReturnDate = document.getElementById('returnDate').value;
+  //
+  //
+  const 
+
+
 
   showItinerary();
 }
