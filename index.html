@@ -21,8 +21,8 @@
             <label for="originAirport">จาก* :</label>
             <select id="originAirport" name="originAirport" placeholder="ต้นทาง" required>
               <option value="" disabled selected>ต้นทาง</option>
-              <option value="BKK">กรุงเทพ(สุวรรณภูมิ) - ไทย [BKK]</option>
-              <option value="DMK">กรุงเทพ(ดอนเมือง) - ไทย [DMK]</option>
+              <option value="กรุงเทพ(สุวรรณภูมิ) - ไทย [BKK]">กรุงเทพ(สุวรรณภูมิ) - ไทย [BKK]</option>
+              <option value="กรุงเทพ(ดอนเมือง) - ไทย [DMK]">กรุงเทพ(ดอนเมือง) - ไทย [DMK]</option>
             </select>
           </div>
 
@@ -30,8 +30,8 @@
             <label for="destinationAirport">ไป* :</label>
             <select id="destinationAirport" name="destinationAirport" placeholder="ปลายทาง" required>
               <option value="" disabled selected>ปลายทาง</option>
-              <option value="TPE">ไทเป - ไต้หวัน [TPE]</option>
-              <option value="HKG">ฮ่องกง - ฮ่องกง [HKG]</option>
+              <option value="ไทเป - ไต้หวัน [TPE]">ไทเป - ไต้หวัน [TPE]</option>
+              <option value="ฮ่องกง - ฮ่องกง [HKG]">ฮ่องกง - ฮ่องกง [HKG]</option>
             </select>
           </div>
 
@@ -65,6 +65,7 @@
               20:10 น. - 23:15 น. 12,000 THB/คน
             </label>
           </div>
+          <div id="resultGo"></div>
         </fieldset>
 
         <fieldset id="return" class="tripForm">
@@ -82,6 +83,7 @@
               16:55 น. - 19:50 น. 16,000 THB/คน
             </label>
           </div>
+          <div id="resultBack"></div>
         </fieldset>
 
         <div class="countForm">
@@ -90,7 +92,7 @@
         </div>
 
         <div class="countForm">
-          <span class="textForm">ราคา: <span id="totalPrice"><strong>0</strong></span> บาท</span>
+          <span class="textForm">ราคา: <span id="totalPrice"><strong>0</strong>
         </div>
 
         <div class="buttonContainer">
