@@ -1,5 +1,6 @@
-console.log('Paper Airlines is ready to take off! 🛫');
 
+console.log('Paper Airlines is ready to take off! 🛫');
+let totalAmount = 0;
 
 const itinerary = {
   origin: 'DMK">กรุงเทพ(ดอนเมือง) - ไทย [DMK]',
@@ -38,7 +39,28 @@ const itinerary = {
       email: '',
       mobile: ''
     }
-  ]
+  ],
+  calculateTotalPrice: function() {
+
+    var departureCheckbox = document.querySelector('input[name="departureCheck"]:checked');
+    var returnCheckbox = document.querySelector('input[name="returnCheck"]:checked');
+  
+    if (departureCheckbox && returnCheckbox) {
+      var departureValue = departureCheckbox.value.split('/');
+      var return_value = returnCheckbox.value.split('/');
+  
+      var departurePrice = parseFloat(departureValue[2]);
+      var returnPrice = parseFloat(return_value[2]);
+
+    }
+    
+    let passengerCount = parseInt(document.getElementById("passengerCount").value);
+
+    let totalPrice = (departurePrice + returnPrice) * passengerCount;
+
+    return totalPrice;
+    
+}
 };
 
 // แสดงข้อมูลที่ถูกบันทึก
@@ -78,36 +100,47 @@ function showItinerary() {
   //ค่าตั๋ว
   const totalAmount = document.getElementById('totalAmount');
   totalAmount.innerText = itinerary.totalPrice; //.toLocaleString('en-US', {style: 'currency', currency: 'THB'});
+
+  //ผู้โดยสาร
+  const titleName = document.getElementById('titleName');
+  titleName.innerText = itinerary.passengerCount.titleName;
+
   
 }
 
 
 function updateItinerary()  {
-  const valueDateTripGo= {date: document.getElementById('departureDate').value};
-  itinerary.departureDate.date = valueDateTripGo.date;
 
-  const valueOrigin= {origin: document.getElementById('originAirport').value}; //ไป-กลับ
-  itinerary.origin = valueOrigin.origin;
+  itinerary.departureDate.date = document.getElementById('departureDate').value;
 
-  const valueDestination= {destination: document.getElementById('destinationAirport').value}; //ไป-กลับ
-  itinerary.destination = valueDestination.destination;
+  //เวลาออก
+  itinerary.origin = document.getElementById('originAirport').value;
+  //เวลาถึง
+  itinerary.destination = document.getElementById('destinationAirport').value;
+  //เวลาออก
+  itinerary.returnDate.date = document.getElementById('returnDate').value;
+  //เวลาถึง
+  itinerary.totalPrice = document.getElementById('totalPrice').value;
 
-  const valueDateTripBack= {date: document.getElementById('returnDate').value};
-  itinerary.returnDate.date = valueDateTripBack.date;
+  itinerary.passengerCount = document.getElementById('passengerCount').value;
+  itinerary.totalPrice = itinerary.calculateTotalPrice().toLocaleString('en-US', {style: 'currency', currency: 'THB'});
 
-  const valueTotalAmount = {totalPrice: document.getElementById('totalPrice').value};
-  itinerary.totalPrice = valueTotalAmount.totalPrice;
-
-
-
-
-
-
-  // เพื่อทดสอบการทำงาน คุณสามารถ log ค่า itinerary เพื่อดูผลลัพธ์
-  console.log('Updated Itinerary:', itinerary);
-
+  itinerary.passengers.passportNo = document.getElementById('passportNo').value;
+  
   showItinerary();
 
+}
+
+function updateItineraryPassenger() {
+  let dropdownGender = document.getElementById("gender");
+  let selectedValueGender = dropdownGender.options[dropdownGender.selectedIndex].value; 
+  itinerary.passengerCount.gender = selectedValueGender;
+
+  let dropdownTitleName = document.getElementById("titleName");
+  let selectedValueTitleName = dropdownTitleName.options[dropdownTitleName.selectedIndex].value;
+  itinerary.passengerCount.titleName = selectedValueTitleName;
+
+  showItinerary();
 }
 
 
@@ -155,6 +188,7 @@ function limitCheckDeparture(checkbox) {
     }
 
     updateTotalPrice();
+    splitValue()
   }
   
   // **ขากลับ** ให้checkbox ได้ 1รายการ
@@ -168,7 +202,9 @@ function limitCheckDeparture(checkbox) {
     }
 
     updateTotalPrice();
+    splitValue()
   }
+  
   
   // ราคาตั๋ว
   function updateTotalPrice() {
@@ -181,29 +217,42 @@ function limitCheckDeparture(checkbox) {
     
         var departurePrice = parseFloat(departureValue[2]);
         var returnPrice = parseFloat(return_value[2]);
-    
-        // var totalPrice = departurePrice + returnPrice;
+  
       }
       
       let passengerCount = parseInt(document.getElementById("passengerCount").value);
 
       let totalPrice = (departurePrice + returnPrice) * passengerCount;
-  
-    document.getElementById('totalPrice').innerHTML = '<strong>' + totalPrice.toLocaleString('en-US', {style: 'currency', currency: 'THB'}) + '</strong>';
-  }
-  
-  function getCheckedOptionValue(name) {
-    let checkboxes = document.getElementsByName(name);
-  
-    for (let i = 2; i < checkboxes.length; i++) {
-        if (checkboxes[i].checked) {
-            return parseInt(checkboxes[i].value);
-        }
-    }
-  
-    return 0;
-  }
+      let vatPrice = totalPrice * 0.07;
+      let costPrice = totalPrice - vatPrice;
 
+
+      
+    // document.getElementById('totalPrice').innerHTML = '<strong>' + totalPrice.toLocaleString('en-US', {style: 'currency', currency: 'THB'}) + '</strong>';
+    // document.getElementById('vatPrice').innerHTML = '<strong>' + vatPrice.toLocaleString('en-US', {style: 'currency', currency: 'THB'}) + '</strong>';
+    // document.getElementById('costPrice').innerHTML = '<strong>' + costPrice.toLocaleString('en-US', {style: 'currency', currency: 'THB'}) + '</strong>';
+  };
+
+
+  function splitValue() {
+        //split value
+        let departureValue = document.querySelector('input[name="departureCheck"]:checked');
+        let returnValue = document.querySelector('input[name="returnCheck"]:checked');
+
+        if (departureValue && returnValue) {
+        let departureArray = departureValue.value.split('/');
+        let returnArray = returnValue.value.split('/');
+      
+        let departureTimeGo = departureArray[0];
+        let departureTimeBack = departureArray[1];
+        let departurePrice = departureArray[2];
+        let arrivalTimeFo = returnArray[0];
+        let arrivalTimeBack = returnArray[1];
+        let returnPrice = returnArray[2];
+  }
+};
+
+  
 
 //**เพิ่ม Passenger Form */
 document.getElementById('addPassenger').addEventListener('click', function() {
@@ -228,3 +277,4 @@ document.getElementById('addPassenger').addEventListener('click', function() {
 
   console.log('Added passenger form');
 });
+

@@ -172,7 +172,7 @@
         </div>
         <div class="buttonContainer">
           <button type="button" class="button" id="backBtn1" onclick="">Back</button>
-          <button type="button" class="button" id="nextBtn2" onclick="">Next</button>
+          <button type="button" class="button" id="nextBtn2" onclick="updateItineraryPassenger()">Next</button>
         </div>
       </form>
 
@@ -240,10 +240,16 @@
 
             <div class="passengerForm">
               <div id="passengerNo1">
-                <span>Passanger1 <span><strong>Mr. Kanit Coders</strong></span>
+                <span>Passanger1 
+                <span id="titleName"><strong>Mr.</strong></span>
+                <span id="firstName"><strong>Kanit</strong></span>
+                <span id="lastName"><strong>Coders</strong></span>
               </div>
               <div id="passengerNo2">
-                <span>Passanger2 <span><strong>Mrs. Sudo Coders</strong></span>
+                <span>Passanger2 <span>
+                <span id="titleName"><strong>Mrs.</strong></span>
+                <span id="firstName"><strong>Sudo</strong></span>
+                <span id="lastName"><strong>Coders</strong></span>
               </div>
             </div>
         </fieldset>
