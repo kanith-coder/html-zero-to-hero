@@ -18,6 +18,8 @@ const itinerary = {
     arriveTime: '14:00'
   },
   passengerCount: 1,
+  costPrice: 0,
+  vatPrice: 0,
   totalPrice: 0,
   passengers: [
     {
@@ -29,7 +31,7 @@ const itinerary = {
       gender: '',
       email: '',
       mobile: ''
-    },{
+    }, {
       passportNo: 'A1234567',
       titleName: 'Mrs.',
       firstName: 'Jane',
@@ -40,27 +42,27 @@ const itinerary = {
       mobile: ''
     }
   ],
-  calculateTotalPrice: function() {
+  calculateTotalPrice: function () {
 
     var departureCheckbox = document.querySelector('input[name="departureCheck"]:checked');
     var returnCheckbox = document.querySelector('input[name="returnCheck"]:checked');
-  
+
     if (departureCheckbox && returnCheckbox) {
       var departureValue = departureCheckbox.value.split('/');
       var return_value = returnCheckbox.value.split('/');
-  
+
       var departurePrice = parseFloat(departureValue[2]);
       var returnPrice = parseFloat(return_value[2]);
 
     }
-    
+
     let passengerCount = parseInt(document.getElementById("passengerCount").value);
 
     let totalPrice = (departurePrice + returnPrice) * passengerCount;
 
     return totalPrice;
-    
-}
+
+  }
 };
 
 // แสดงข้อมูลที่ถูกบันทึก
@@ -98,18 +100,25 @@ function showItinerary() {
   destinatBack.innerText = itinerary.origin;
 
   //ค่าตั๋ว
+  const costPrice = document.getElementById('costPrice');
+  costPrice.innerText = itinerary.costPrice.toLocaleString('en-US', { style: 'currency', currency: 'THB' });;
+
+  const vatPrice = document.getElementById('vatPrice');
+  vatPrice.innerText = itinerary.vatPrice.toLocaleString('en-US', { style: 'currency', currency: 'THB' });;
+
+
   const totalAmount = document.getElementById('totalAmount');
-  totalAmount.innerText = itinerary.totalPrice; //.toLocaleString('en-US', {style: 'currency', currency: 'THB'});
+  totalAmount.innerText = itinerary.totalPrice.toLocaleString('en-US', { style: 'currency', currency: 'THB' });;
 
   //ผู้โดยสาร
   const titleName = document.getElementById('titleName');
   titleName.innerText = itinerary.passengerCount.titleName;
 
-  
+
 }
 
 
-function updateItinerary()  {
+function updateItinerary() {
 
   itinerary.departureDate.date = document.getElementById('departureDate').value;
 
@@ -120,28 +129,34 @@ function updateItinerary()  {
   //เวลาออก
   itinerary.returnDate.date = document.getElementById('returnDate').value;
   //เวลาถึง
-  itinerary.totalPrice = document.getElementById('totalPrice').value;
 
   itinerary.passengerCount = document.getElementById('passengerCount').value;
-  itinerary.totalPrice = itinerary.calculateTotalPrice().toLocaleString('en-US', {style: 'currency', currency: 'THB'});
+  itinerary.totalPrice = itinerary.calculateTotalPrice();
 
   itinerary.passengers.passportNo = document.getElementById('passportNo').value;
-  
+
+  let calVat = itinerary.totalPrice;
+  let costPrice = (calVat * 100) / 107;
+  let vatPrice = calVat - costPrice;
+
+  itinerary.costPrice = costPrice;
+  itinerary.vatPrice = vatPrice;
+
+  splitValue();
   showItinerary();
+
 
 }
 
 
 const bookingForm = document.getElementById('bookingForm');
 
-bookingForm.addEventListener("submit", function(event) {
-  e.preventDefault();
+bookingForm.addEventListener("submit", function (event) {
+  event.preventDefault();
   updateItinerary();
   // saveDropdownValue();
   // document.getElementById('bookingForm').style.display = 'none';          //page1
   // document.getElementById('personalInfoForm').style.display = 'block';    //page2
-  alert('Your itinerary has been updated!' + JSON.stringify(itinerary));
-  console.log('itinerary = ', itinerary);
 });
 
 //การทำงานปุ่ม
@@ -161,88 +176,95 @@ function nextPage3() {
 }
 
 function prevPage2() {
-  document.getElementById('personalInfoForm').style.display = 'block';       
+  document.getElementById('personalInfoForm').style.display = 'block';
   document.getElementById('additionalInfoForm').style.display = 'none';   //page2
 }
 
 
 // **ขาไป** ให้checkbox ได้ 1รายการ
 function limitCheckDeparture(checkbox) {
-    var checkboxes = document.getElementsByName('departureCheck');
-  
-    for (var i = 0; i < checkboxes.length; i++) {
-        if (checkboxes[i] !== checkbox) {
-            checkboxes[i].checked = false;
-        }
+  var checkboxes = document.getElementsByName('departureCheck');
+
+  for (var i = 0; i < checkboxes.length; i++) {
+    if (checkboxes[i] !== checkbox) {
+      checkboxes[i].checked = false;
     }
-
-    updateTotalPrice();
   }
-  
-  // **ขากลับ** ให้checkbox ได้ 1รายการ
-  function limitCheckReturn(checkbox) {
-    var checkboxes = document.getElementsByName('returnCheck');
-  
-    for (var i = 0; i < checkboxes.length; i++) {
-        if (checkboxes[i] !== checkbox) {
-            checkboxes[i].checked = false;
-        }
+
+  updateTotalPrice();
+}
+
+// **ขากลับ** ให้checkbox ได้ 1รายการ
+function limitCheckReturn(checkbox) {
+  var checkboxes = document.getElementsByName('returnCheck');
+
+  for (var i = 0; i < checkboxes.length; i++) {
+    if (checkboxes[i] !== checkbox) {
+      checkboxes[i].checked = false;
     }
-
-    updateTotalPrice();
   }
-  
-  
-  // ราคาตั๋ว
-  function updateTotalPrice() {
-      var departureCheckbox = document.querySelector('input[name="departureCheck"]:checked');
-      var returnCheckbox = document.querySelector('input[name="returnCheck"]:checked');
-    
-      if (departureCheckbox && returnCheckbox) {
-        var departureValue = departureCheckbox.value.split('/');
-        var return_value = returnCheckbox.value.split('/');
-    
-        var departurePrice = parseFloat(departureValue[2]);
-        var returnPrice = parseFloat(return_value[2]);
-  
-      }
-      
-      let passengerCount = parseInt(document.getElementById("passengerCount").value);
 
-      let totalPrice = (departurePrice + returnPrice) * passengerCount;
-      let vatPrice = totalPrice * 0.07;
-      let costPrice = totalPrice - vatPrice;
+  updateTotalPrice();
+}
 
 
-      
-    // document.getElementById('totalPrice').innerHTML = '<strong>' + totalPrice.toLocaleString('en-US', {style: 'currency', currency: 'THB'}) + '</strong>';
-    // document.getElementById('vatPrice').innerHTML = '<strong>' + vatPrice.toLocaleString('en-US', {style: 'currency', currency: 'THB'}) + '</strong>';
-    // document.getElementById('costPrice').innerHTML = '<strong>' + costPrice.toLocaleString('en-US', {style: 'currency', currency: 'THB'}) + '</strong>';
-  };
+// ราคาตั๋ว
+function updateTotalPrice() {
+  var departureCheckbox = document.querySelector('input[name="departureCheck"]:checked');
+  var returnCheckbox = document.querySelector('input[name="returnCheck"]:checked');
 
+  if (departureCheckbox && returnCheckbox) {
+    var departureValue = departureCheckbox.value.split('/');
+    var return_value = returnCheckbox.value.split('/');
 
-  function splitValue() {
-        //split value
-        let departureValue = document.querySelector('input[name="departureCheck"]:checked');
-        let returnValue = document.querySelector('input[name="returnCheck"]:checked');
+    var departurePrice = parseFloat(departureValue[2]);
+    var returnPrice = parseFloat(return_value[2]);
 
-        if (departureValue && returnValue) {
-        let departureArray = departureValue.value.split('/');
-        let returnArray = returnValue.value.split('/');
-      
-        let departureTimeGo = departureArray[0];
-        let departureTimeBack = departureArray[1];
-        let departurePrice = departureArray[2];
-        let arrivalTimeFo = returnArray[0];
-        let arrivalTimeBack = returnArray[1];
-        let returnPrice = returnArray[2];
   }
+
+  let passengerCount = parseInt(document.getElementById("passengerCount").value);
+
+  let totalPrice = (departurePrice + returnPrice) * passengerCount;
+  let vatPrice = totalPrice * 0.07;
+  let costPrice = totalPrice - vatPrice;
+
+
+
+  // document.getElementById('totalPrice').innerHTML = '<strong>' + totalPrice.toLocaleString('en-US', {style: 'currency', currency: 'THB'}) + '</strong>';
+  // document.getElementById('vatPrice').innerHTML = '<strong>' + vatPrice.toLocaleString('en-US', {style: 'currency', currency: 'THB'}) + '</strong>';
+  // document.getElementById('costPrice').innerHTML = '<strong>' + costPrice.toLocaleString('en-US', {style: 'currency', currency: 'THB'}) + '</strong>';
 };
 
-  
+
+function splitValue() {
+  //split value
+  let departureValue = document.querySelector('input[name="departureCheck"]:checked').value;
+  let returnValue = document.querySelector('input[name="returnCheck"]:checked').value;
+
+  if (departureValue && returnValue) {
+    let departureArray = departureValue.split('/');
+    let returnArray = returnValue.split('/');
+
+    let departureTimeGo = departureArray[0];
+    let departureTimeBack = departureArray[1];
+    let departurePrice = departureArray[2];
+    let arrivalTimeGo = returnArray[0];
+    let arrivalTimeBack = returnArray[1];
+    let returnPrice = returnArray[2];
+
+    itinerary.departureDate.departTime = departureTimeGo;
+    itinerary.departureDate.arriveTime = departureTimeBack;
+
+    itinerary.returnDate.departTime = arrivalTimeGo;
+    itinerary.returnDate.arriveTime = arrivalTimeBack;
+
+  }
+
+};
+
 
 //**เพิ่ม Passenger Form */
-document.getElementById('addPassenger').addEventListener('click', function() {
+document.getElementById('addPassenger').addEventListener('click', function () {
   // Clone the existing passenger fieldset
   let passengerContainer = document.getElementById('passengerContainer');
   let lastPassengerFieldset = passengerContainer.lastElementChild;
@@ -255,7 +277,7 @@ document.getElementById('addPassenger').addEventListener('click', function() {
 
   // Clear input values in the new passenger fieldset
   let inputElements = newPassengerFieldset.querySelectorAll('input, select');
-  inputElements.forEach(function(input) {
+  inputElements.forEach(function (input) {
     input.value = '';
   });
 
@@ -265,3 +287,14 @@ document.getElementById('addPassenger').addEventListener('click', function() {
   console.log('Added passenger form');
 });
 
+function updatepersonalInfoForm () {
+  itinerary.passengers[0].passportNo = document.getElementById('passportNo').value;
+}
+
+const personalInfoForm = document.getElementById('personalInfoForm');
+
+personalInfoForm.addEventListener('submit', function (event) {
+  event.preventDefault();
+  updatepersonalInfoForm();
+}
+);
