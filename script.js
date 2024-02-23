@@ -131,30 +131,19 @@ function updateItinerary()  {
 
 }
 
-function updateItineraryPassenger() {
-  let dropdownGender = document.getElementById("gender");
-  let selectedValueGender = dropdownGender.options[dropdownGender.selectedIndex].value; 
-  itinerary.passengerCount.gender = selectedValueGender;
 
-  let dropdownTitleName = document.getElementById("titleName");
-  let selectedValueTitleName = dropdownTitleName.options[dropdownTitleName.selectedIndex].value;
-  itinerary.passengerCount.titleName = selectedValueTitleName;
+const bookingForm = document.getElementById('bookingForm');
 
-  showItinerary();
-}
-
-
-
-
-
-const form = document.getElementById('bookingForm');
-
-form.addEventListener("submit", function(event) {
+bookingForm.addEventListener("submit", function(event) {
   e.preventDefault();
-  saveDropdownValue();
-  document.getElementById('bookingForm').style.display = 'none';          //page1
-  document.getElementById('personalInfoForm').style.display = 'block';    //page2
+  updateItinerary();
+  // saveDropdownValue();
+  // document.getElementById('bookingForm').style.display = 'none';          //page1
+  // document.getElementById('personalInfoForm').style.display = 'block';    //page2
+  alert('Your itinerary has been updated!' + JSON.stringify(itinerary));
+  console.log('itinerary = ', itinerary);
 });
+
 //การทำงานปุ่ม
 // function nextPage2() {
 //   document.getElementById('bookingForm').style.display = 'none';          //page1
@@ -188,7 +177,6 @@ function limitCheckDeparture(checkbox) {
     }
 
     updateTotalPrice();
-    splitValue()
   }
   
   // **ขากลับ** ให้checkbox ได้ 1รายการ
@@ -202,7 +190,6 @@ function limitCheckDeparture(checkbox) {
     }
 
     updateTotalPrice();
-    splitValue()
   }
   
   
