@@ -2,13 +2,21 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <!-- <link rel="stylesheet" href="./styles.css"> -->
     <title>RPG - Dragon Repeller</title>
   </head>
   <body>
     <div id="game">
-      RPG - Dragon Repeller
+      <form id="gameForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required />
+        <label for="email">Email:</label>
+        <input type="email" id="email" required />
+        <label for="age">Age:</label>
+        <input type="number" id="age" required />
+        <button type="submit">บันทึก</button>
+        <button type="button" id="myBtn">Test</button>
     </div>
+    
     <script src="./scripts.js"></script>
   </body>
   </html>
