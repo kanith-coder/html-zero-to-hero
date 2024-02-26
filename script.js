@@ -67,6 +67,7 @@ const itinerary = {
   }
 };
 
+
 // แสดงข้อมูลที่ถูกบันทึก
 function showItinerary() {
   //ขาไป
@@ -206,7 +207,16 @@ function limitCheckReturn(checkbox) {
   itinerary.calculateTotalPrice()
 }
 
+function showTotalPrice() {
 
+  let totalPrice = itinerary.totalPrice;
+  document.getElementById('totalPrice').innerText = totalPrice.toLocaleString('en-US', { style: 'currency', currency: 'THB' });
+
+  itinerary.calculateTotalPrice()
+  
+}
+
+showTotalPrice()
 
 function splitValue() {
   //split value
