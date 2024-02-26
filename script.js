@@ -22,25 +22,27 @@ const itinerary = {
   vatPrice: 0,
   totalPrice: 0,
   passengers: [
-    {
-      passportNo: 'A1234567',
-      titleName: 'Mr.',
-      firstName: 'John',
-      middleName: '',
-      lastName: 'Doe',
-      gender: '',
-      email: '',
-      mobile: ''
-    }, {
-      passportNo: 'A1234567',
-      titleName: 'Mrs.',
-      firstName: 'Jane',
-      middleName: '',
-      lastName: 'Doe',
-      gender: '',
-      email: '',
-      mobile: ''
-    }
+    // {
+    //   passengerNo: 'Passenger 1',
+    //   passportNo: 'A1234567',
+    //   titleName: 'Mr.',
+    //   firstName: 'John',
+    //   middleName: '',
+    //   lastName: 'Doe',
+    //   gender: '',
+    //   email: '',
+    //   mobile: ''
+    // }, {
+    //   passengerNo: 'Passenger 2',
+    //   passportNo: 'A1234567',
+    //   titleName: 'Mrs.',
+    //   firstName: 'Jane',
+    //   middleName: '',
+    //   lastName: 'Doe',
+    //   gender: '',
+    //   email: '',
+    //   mobile: ''
+    // }
   ],
   calculateTotalPrice: function () {
 
@@ -111,8 +113,7 @@ function showItinerary() {
   totalAmount.innerText = itinerary.totalPrice.toLocaleString('en-US', { style: 'currency', currency: 'THB' });;
 
   //ผู้โดยสาร
-  const titleName = document.getElementById('titleName');
-  titleName.innerText = itinerary.passengerCount.titleName;
+
 
 
 }
@@ -144,8 +145,6 @@ function updateItinerary() {
 
   splitValue();
   showItinerary();
-
-
 }
 
 
@@ -191,7 +190,7 @@ function limitCheckDeparture(checkbox) {
     }
   }
 
-  updateTotalPrice();
+  itinerary.calculateTotalPrice()
 }
 
 // **ขากลับ** ให้checkbox ได้ 1รายการ
@@ -204,36 +203,9 @@ function limitCheckReturn(checkbox) {
     }
   }
 
-  updateTotalPrice();
+  itinerary.calculateTotalPrice()
 }
 
-
-// ราคาตั๋ว
-function updateTotalPrice() {
-  var departureCheckbox = document.querySelector('input[name="departureCheck"]:checked');
-  var returnCheckbox = document.querySelector('input[name="returnCheck"]:checked');
-
-  if (departureCheckbox && returnCheckbox) {
-    var departureValue = departureCheckbox.value.split('/');
-    var return_value = returnCheckbox.value.split('/');
-
-    var departurePrice = parseFloat(departureValue[2]);
-    var returnPrice = parseFloat(return_value[2]);
-
-  }
-
-  let passengerCount = parseInt(document.getElementById("passengerCount").value);
-
-  let totalPrice = (departurePrice + returnPrice) * passengerCount;
-  let vatPrice = totalPrice * 0.07;
-  let costPrice = totalPrice - vatPrice;
-
-
-
-  // document.getElementById('totalPrice').innerHTML = '<strong>' + totalPrice.toLocaleString('en-US', {style: 'currency', currency: 'THB'}) + '</strong>';
-  // document.getElementById('vatPrice').innerHTML = '<strong>' + vatPrice.toLocaleString('en-US', {style: 'currency', currency: 'THB'}) + '</strong>';
-  // document.getElementById('costPrice').innerHTML = '<strong>' + costPrice.toLocaleString('en-US', {style: 'currency', currency: 'THB'}) + '</strong>';
-};
 
 
 function splitValue() {
@@ -262,39 +234,98 @@ function splitValue() {
 
 };
 
+const addPassengerBtn = document.getElementById('addPassenger')
 
-//**เพิ่ม Passenger Form */
-document.getElementById('addPassenger').addEventListener('click', function () {
-  // Clone the existing passenger fieldset
-  let passengerContainer = document.getElementById('passengerContainer');
-  let lastPassengerFieldset = passengerContainer.lastElementChild;
-  let newPassengerFieldset = lastPassengerFieldset.cloneNode(true);
+function addPassenger () {
+  //**เพิ่ม Passenger Form */
+    // Clone the existing passenger fieldset
+    let passengerContainer = document.getElementById('passengerContainer');
+    let lastPassengerFieldset = passengerContainer.lastElementChild;
+    let newPassengerFieldset = lastPassengerFieldset.cloneNode(true);
+  
+    // Update the legend and ID for the new passenger fieldset
+    let passengerCount = passengerContainer.childElementCount + 1;
+    newPassengerFieldset.querySelector('legend').innerText = 'Passenger ' + passengerCount;
+    newPassengerFieldset.id = 'passenger' + passengerCount;
+  
+    // Clear input values in the new passenger fieldset
+    let inputElements = newPassengerFieldset.querySelectorAll('input, select');
+    inputElements.forEach(function (input) {
+      input.value = '';
+    });
+  
+    // Append the new passenger fieldset to the container
+    passengerContainer.appendChild(newPassengerFieldset);
+  
+    console.log('Added passenger form');
+};
+addPassengerBtn.addEventListener('click', addPassenger);
 
-  // Update the legend and ID for the new passenger fieldset
-  let passengerCount = passengerContainer.childElementCount + 1;
-  newPassengerFieldset.querySelector('legend').innerText = 'Passenger ' + passengerCount;
-  newPassengerFieldset.id = 'passenger' + passengerCount;
 
-  // Clear input values in the new passenger fieldset
-  let inputElements = newPassengerFieldset.querySelectorAll('input, select');
-  inputElements.forEach(function (input) {
-    input.value = '';
+function displayPassengerData() {
+  
+  let passengerFieldsets = document.querySelectorAll('#passengerContainer fieldset');
+
+  // Loop through each passenger fieldset
+  passengerFieldsets.forEach(function(passengerFieldset, index) {
+
+    // Get input values from the passenger fieldset
+    let passengerNo = (`Passenger ${index + 1}`);
+    let passportNo = passengerFieldset.querySelector('#passportNo').value;
+    let gender = passengerFieldset.querySelector('#gender').value;
+    let titleName = passengerFieldset.querySelector('[name="titleName"]').value;
+    let firstName = passengerFieldset.querySelector('#firstName').value;
+    let middleName = passengerFieldset.querySelector('#middleName').value;
+    let lastName = passengerFieldset.querySelector('#lastName').value;
+    let email = passengerFieldset.querySelector('#email').value;
+    let mobile = passengerFieldset.querySelector('#mobile').value;
+
+    // Display the data (you can customize how to display it)
+    // console.log(`Passenger: ${passengerNo}`);
+    // console.log(`PassportNo: ${passportNo}`);
+    // console.log(`Gender: ${gender}`);
+    // console.log(`Title: ${titleName}`);
+    // console.log(`First Name: ${firstName}`);
+    // console.log(`Middle Name: ${middleName}`);
+    // console.log(`Last Name: ${lastName}`);
+    // console.log(`Email: ${email}`);
+    // console.log(`Mobile: ${mobile}`);
+
+    let passenger = {
+      passengerNo: passengerNo,
+      passportNo: passportNo,
+      titleName: titleName,
+      firstName: firstName,
+      middleName: middleName,
+      lastName: lastName,
+      email: email,
+      mobile: mobile
+    };
+  
+  itinerary.passengers = passenger;
   });
-
-  // Append the new passenger fieldset to the container
-  passengerContainer.appendChild(newPassengerFieldset);
-
-  console.log('Added passenger form');
-});
-
-function updatepersonalInfoForm () {
-  itinerary.passengers[0].passportNo = document.getElementById('passportNo').value;
-}
-
+};
+ 
 const personalInfoForm = document.getElementById('personalInfoForm');
 
 personalInfoForm.addEventListener('submit', function (event) {
   event.preventDefault();
-  updatepersonalInfoForm();
+  displayPassengerData();
+  console.log(itinerary.passengers);
+  showPassengerName()
 }
 );
+
+function showPassengerName() {
+
+  let passengerPath = document.getElementById('passengerNo'); 
+  passengerPath.innerHTML = '';
+
+  itinerary.passengers.forEach(function (passenger) {
+    let passengerDiv = document.createElement('div');
+    passengerDiv.innerHTML = `${passenger.passengerNo} - ${passenger.firstName} ${passenger.lastName}`;
+
+    passengerPath.appendChild(passengerDiv);
+
+  });
+};
