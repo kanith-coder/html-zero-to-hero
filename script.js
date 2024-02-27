@@ -21,29 +21,8 @@ const itinerary = {
   costPrice: 0,
   vatPrice: 0,
   totalPrice: 0,
-  passengers: [
-    // {
-    //   passengerNo: 'Passenger 1',
-    //   passportNo: 'A1234567',
-    //   titleName: 'Mr.',
-    //   firstName: 'John',
-    //   middleName: '',
-    //   lastName: 'Doe',
-    //   gender: '',
-    //   email: '',
-    //   mobile: ''
-    // }, {
-    //   passengerNo: 'Passenger 2',
-    //   passportNo: 'A1234567',
-    //   titleName: 'Mrs.',
-    //   firstName: 'Jane',
-    //   middleName: '',
-    //   lastName: 'Doe',
-    //   gender: '',
-    //   email: '',
-    //   mobile: ''
-    // }
-  ],
+  passengers: [],
+  
   calculateTotalPrice: function () {
 
     var departureCheckbox = document.querySelector('input[name="departureCheck"]:checked');

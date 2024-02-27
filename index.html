@@ -90,15 +90,15 @@
 
         <div class="countForm">
           <label for="passengerCount">จำนวนผู้โดยสาร:</label>
-          <input type="number" id="passengerCount" min="1" value="1" onchange="updateTotalPrice()">
+          <input type="number" id="passengerCount" min="1" value="1" >
         </div>
 
         <div class="countForm">
-          <span class="textForm">ราคา: <span id="totalPrice"><strong>0</strong>
+          <span class="textForm">ราคา: <span id="totalPrice"><strong>0</strong></span></span>
         </div>
 
         <div class="buttonContainer">
-          <button type="submit" class="button">Next</button>
+          <button type="submit" class="button" name="nextBtnPage1">Next</button>
         </div>
       </form>
 
@@ -174,7 +174,7 @@
         </div>
         <div class="buttonContainer">
           <button type="button" class="button" id="backBtn1" onclick="">Back</button>
-          <button type="submit" class="button">Next</button>
+          <button type="submit" class="button" name="nextBtnPage2">Next</button>
         </div>
       </form>
 
@@ -226,7 +226,7 @@
 
             <div class="passengerForm">
               <div id="passengerNo">
-                <!-- <span>Passanger1 
+                <!-- <span>Passanger1 </span>
                 <span id="titleNameValue1"><strong>Mr.</strong></span>
                 <span id="firstNameValue1"><strong>Kanit</strong></span>
                 <span id="lastNameValue1"><strong>Coders</strong></span> -->

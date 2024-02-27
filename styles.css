@@ -86,9 +86,14 @@ row {
     color: #080808;
     text-decoration: none;
     border: none;
-    border-radius: 5px;
+    border-radius: 20px;
     cursor: pointer;
     width: 100px;
+    transition: background-color 0.3s ease; /* เพื่อให้มีการเปลี่ยนสีพื้นหลังอย่างนุ่มนวลเมื่อ hover */
+  }
+
+  .button:hover {
+    background-color: #e7dc76; /* สีพื้นหลังเมื่อ hover */
   }
 
     #backBtn1, #backBtn2 {
@@ -96,9 +101,10 @@ row {
       margin-left: 50px;
     }
 
-    #nextBtn1 {
+    button[name="nextBtnPage1"] {
       margin-top: 20px;
       margin-left: 530px;
+      margin-bottom: 10px;
     }
 
     #addPassenger {
@@ -106,9 +112,10 @@ row {
       margin-left: 480px;
     }
     
-    #nextBtn2 {
+    button[name="nextBtnPage2"] {
       margin-top: 20px;
       margin-left: 380px;
+      margin-bottom: 10px;
     }  
 
     #submitBtn {
