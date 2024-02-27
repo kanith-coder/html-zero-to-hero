@@ -112,11 +112,6 @@ function showItinerary() {
 
   const totalAmount = document.getElementById('totalAmount');
   totalAmount.innerText = itinerary.totalPrice.toLocaleString('en-US', { style: 'currency', currency: 'THB' });;
-
-  //ผู้โดยสาร
-
-
-
 }
 
 
@@ -207,16 +202,7 @@ function limitCheckReturn(checkbox) {
   itinerary.calculateTotalPrice()
 }
 
-function showTotalPrice() {
 
-  let totalPrice = itinerary.totalPrice;
-  document.getElementById('totalPrice').innerText = totalPrice.toLocaleString('en-US', { style: 'currency', currency: 'THB' });
-
-  itinerary.calculateTotalPrice()
-  
-}
-
-showTotalPrice()
 
 function splitValue() {
   //split value
@@ -291,15 +277,15 @@ function displayPassengerData() {
     let mobile = passengerFieldset.querySelector('#mobile').value;
 
     // Display the data (you can customize how to display it)
-    // console.log(`Passenger: ${passengerNo}`);
-    // console.log(`PassportNo: ${passportNo}`);
-    // console.log(`Gender: ${gender}`);
-    // console.log(`Title: ${titleName}`);
-    // console.log(`First Name: ${firstName}`);
-    // console.log(`Middle Name: ${middleName}`);
-    // console.log(`Last Name: ${lastName}`);
-    // console.log(`Email: ${email}`);
-    // console.log(`Mobile: ${mobile}`);
+    console.log(`Passenger: ${passengerNo}`);
+    console.log(`PassportNo: ${passportNo}`);
+    console.log(`Gender: ${gender}`);
+    console.log(`Title: ${titleName}`);
+    console.log(`First Name: ${firstName}`);
+    console.log(`Middle Name: ${middleName}`);
+    console.log(`Last Name: ${lastName}`);
+    console.log(`Email: ${email}`);
+    console.log(`Mobile: ${mobile}`);
 
     let passenger = {
       passengerNo: passengerNo,
