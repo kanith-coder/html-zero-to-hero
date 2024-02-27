@@ -130,7 +130,7 @@ function updateItinerary() {
   itinerary.passengerCount = document.getElementById('passengerCount').value;
   itinerary.totalPrice = itinerary.calculateTotalPrice();
 
-  itinerary.passengers.passportNo = document.getElementById('passportNo').value;
+  itinerary.passengers.passportNo = document.getElementsByName('passportNo').value;
 
   let calVat = itinerary.totalPrice;
   let costPrice = (calVat * 100) / 107;
@@ -267,14 +267,14 @@ function displayPassengerData() {
 
     // Get input values from the passenger fieldset
     let passengerNo = (`Passenger ${index + 1}`);
-    let passportNo = passengerFieldset.querySelector('#passportNo').value;
-    let gender = passengerFieldset.querySelector('#gender').value;
+    let passportNo = passengerFieldset.querySelector('[name="passportNo"').value;
+    let gender = passengerFieldset.querySelector('[name="gender"]').value;
     let titleName = passengerFieldset.querySelector('[name="titleName"]').value;
-    let firstName = passengerFieldset.querySelector('#firstName').value;
-    let middleName = passengerFieldset.querySelector('#middleName').value;
-    let lastName = passengerFieldset.querySelector('#lastName').value;
-    let email = passengerFieldset.querySelector('#email').value;
-    let mobile = passengerFieldset.querySelector('#mobile').value;
+    let firstName = passengerFieldset.querySelector('[name="firstName"]').value;
+    let middleName = passengerFieldset.querySelector('[name="middleName"]').value;
+    let lastName = passengerFieldset.querySelector('[name="lastName"]').value;
+    let email = passengerFieldset.querySelector('[name="email"]').value;
+    let mobile = passengerFieldset.querySelector('[name="mobile"]').value;
 
     // Display the data (you can customize how to display it)
     console.log(`Passenger: ${passengerNo}`);
@@ -298,7 +298,7 @@ function displayPassengerData() {
       mobile: mobile
     };
   
-  itinerary.passengers = passenger;
+  itinerary.passengers.push(passenger);
   });
 };
  
