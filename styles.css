@@ -86,7 +86,7 @@ row {
     color: #080808;
     text-decoration: none;
     border: none;
-    border-radius: 20px;
+    border-radius: 10px;
     cursor: pointer;
     width: 100px;
     transition: background-color 0.3s ease; /* เพื่อให้มีการเปลี่ยนสีพื้นหลังอย่างนุ่มนวลเมื่อ hover */

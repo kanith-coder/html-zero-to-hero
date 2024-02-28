@@ -46,6 +46,82 @@ const itinerary = {
   }
 };
 
+let showTotalPrice = document.getElementById('totalPrice');
+let totalPrice = 0;
+
+function updateTotalPrice() {
+  let passenger = parseInt(document.getElementById("passengerCount").value);
+  showTotalPrice.innerText = (totalPrice * passenger).toLocaleString('en-US', { style: 'currency', currency: 'THB' });
+}
+
+
+let checkboxDepartureGo = document.getElementById('eveningGo');
+checkboxDepartureGo.addEventListener('change', function (event) {
+  event.preventDefault();
+
+  let departureGoValue = this.value.split('/');
+  let departureGoPrice = parseFloat(departureGoValue[2]);
+
+  if (this.checked) {
+    totalPrice += departureGoPrice;
+  } else {
+    totalPrice -= departureGoPrice;
+  }
+  updateTotalPrice()
+
+});
+
+let checkboxDepartureBack = document.getElementById('nightGo');
+checkboxDepartureBack.addEventListener('change', function (event) {
+  event.preventDefault();
+
+  let departureBackValue = this.value.split('/');
+  let departureBackPrice = parseFloat(departureBackValue[2]);
+
+  if (this.checked) {
+    totalPrice += departureBackPrice;
+  } else {
+    totalPrice -= departureBackPrice;
+  }
+  updateTotalPrice()
+});
+
+let checkboxReturnGo = document.getElementById('eveningBack');
+checkboxReturnGo.addEventListener('change', function (event) {
+  event.preventDefault();
+
+  let returnGoValue = this.value.split('/');
+  let returnGoPrice = parseFloat(returnGoValue[2]);
+
+  if (this.checked) {
+    totalPrice += returnGoPrice;
+  } else {
+    totalPrice -= returnGoPrice;
+  }
+  updateTotalPrice()
+});
+
+let checkboxReturnBack = document.getElementById('nightBack');
+checkboxReturnBack.addEventListener('change', function (event) {
+  event.preventDefault();
+
+  let returnBackValue = this.value.split('/');
+  let returnBackPrice = parseFloat(returnBackValue[2]);
+
+  if (this.checked) {
+    totalPrice += returnBackPrice;
+  } else {
+    totalPrice -= returnBackPrice;
+  }
+  updateTotalPrice()
+});
+
+let passengerInput = document.getElementById("passengerCount");
+passengerInput.addEventListener('input', function () {
+  updateTotalPrice();
+});
+updateTotalPrice();
+
 
 // แสดงข้อมูลที่ถูกบันทึก
 function showItinerary() {
