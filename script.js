@@ -57,6 +57,7 @@ function updateTotalPrice() {
 
 let checkboxDepartureGo = document.getElementById('eveningGo');
 checkboxDepartureGo.addEventListener('change', function (event) {
+  console.log('checkboxDepartureGo');
   event.preventDefault();
 
   let departureGoValue = this.value.split('/');
@@ -64,6 +65,7 @@ checkboxDepartureGo.addEventListener('change', function (event) {
 
   if (this.checked) {
     totalPrice += departureGoPrice;
+    limitCheckDeparture(this);
   } else {
     totalPrice -= departureGoPrice;
   }
@@ -73,6 +75,7 @@ checkboxDepartureGo.addEventListener('change', function (event) {
 
 let checkboxDepartureBack = document.getElementById('nightGo');
 checkboxDepartureBack.addEventListener('change', function (event) {
+  console.log('checkboxDepartureBack');
   event.preventDefault();
 
   let departureBackValue = this.value.split('/');
@@ -88,6 +91,7 @@ checkboxDepartureBack.addEventListener('change', function (event) {
 
 let checkboxReturnGo = document.getElementById('eveningBack');
 checkboxReturnGo.addEventListener('change', function (event) {
+  console.log('checkboxReturnGo');
   event.preventDefault();
 
   let returnGoValue = this.value.split('/');
@@ -103,6 +107,7 @@ checkboxReturnGo.addEventListener('change', function (event) {
 
 let checkboxReturnBack = document.getElementById('nightBack');
 checkboxReturnBack.addEventListener('change', function (event) {
+  console.log('checkboxReturnBack');
   event.preventDefault();
 
   let returnBackValue = this.value.split('/');
