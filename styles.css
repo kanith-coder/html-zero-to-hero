@@ -8,12 +8,30 @@
   box-sizing: border-box;
 }
 
+input[type="date"] {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 300px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+input[type="date"]:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
+}
+
+
 section {
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
+  margin-top: 100px;
   margin-left: 200px;
   margin-right: 200px; 
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -35,6 +53,17 @@ h1 {
   font-family: "Sofia", sans-serif;
 }
 
+h2 {
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 50px;
+}
+
+h3 {
+  font-size: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+
+}
 
 .content {
   padding: 1px;
@@ -82,7 +111,7 @@ h1 {
   transform: scale(1.05);
 }
 
-.textdetails {
+.textDetails {
   color: #050505;
   text-align: left;
   font-size: 12px;
