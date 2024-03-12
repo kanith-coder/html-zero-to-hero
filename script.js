@@ -28,3 +28,5 @@ function displayProducts(products) {
   let data = getApi(products);
 
 }
+
+displayProducts();
