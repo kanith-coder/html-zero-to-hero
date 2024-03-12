@@ -22,3 +22,9 @@ axios.get('https://pubpup-tour-default-rtdb.asia-southeast1.firebasedatabase.app
     // always executed
   });
 }
+
+function displayProducts(products) {
+
+  let data = getApi(products);
+
+}
