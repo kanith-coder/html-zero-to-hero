@@ -13,7 +13,8 @@ function getApi() {
       keys.forEach(key => {
         products.push(data[key]);
       });
-      console.log(products);
+      
+      displayProducts(products)
     })
     .catch(function (error) {
       // handle error
@@ -24,8 +25,22 @@ function getApi() {
     });
 }
 
+
+
 function displayProducts(products) {
-  let data = getApi(products);
+  // let data = products;
+
+  // console.log(products);
+  // console.log(data);
+  products.forEach(function(products) {
+
+  let imageScr = products.image.src;
+  let imageAlt = products.image.alt;
+  let time = products.duration.days + 'Days' + products.duration.hours + 'hours' + products.duration.minutes + 'minutes';
+  console.log(imageScr);
+  console.log(imageAlt);
+  console.log(time);
+  });
 
   let imageContainer = document.createElement('div');
   imageContainer.className = 'image-container';
@@ -33,70 +48,72 @@ function displayProducts(products) {
   let showImageDiv = document.createElement('div');
   showImageDiv.className = 'showImage';
   let image = document.createElement('img');
-  image.src = products.image.src;
-  image.alt = products.image.alt;
+  image.src = imageScr;
+  image.alt = imageAlt;
   showImageDiv.appendChild(image);
 
-  let imageDetailsDiv = document.createElement('div');
-  imageDetailsDiv.className = 'image-details';
+  // let imageDetailsDiv = document.createElement('div');
+  // imageDetailsDiv.className = 'image-details';
 
-  let titleImage = document.createElement('h3');
-  titleImage.className = 'textTitle';
-  titleImage.textContent = data.title;
+  // let titleImage = document.createElement('h3');
+  // titleImage.className = 'textTitle';
+  // titleImage.textContent = products.title;
 
-  let textDetailsDiv = document.createElement('div');
-  textDetailsDiv.className = 'textDetails';
+  // let textDetailsDiv = document.createElement('div');
+  // textDetailsDiv.className = 'textDetails';
 
-  let ratingDiv = document.createElement('div');
-  ratingDiv.className = 'rating';
-  let starRatingDiv = document.createElement('div');
-  starRatingDiv.className = 'starRating';
-  starRatingDiv.textContent = data.rating, score;
-  let reviewCountspan = document.createElement('span');
-  reviewCountspan.className = 'reviewCount';
-  reviewCountspan.textContent = data.rating.reviewCount;
-  starRatingDiv.appendChild(reviewCountspan);
-  ratingDiv.appendChild(starRatingDiv);
+  // let ratingDiv = document.createElement('div');
+  // ratingDiv.className = 'rating';
+  // let starRatingDiv = document.createElement('div');
+  // starRatingDiv.className = 'starRating';
+  // starRatingDiv.textContent = products.rating.score;
+  // let reviewCountspan = document.createElement('span');
+  // reviewCountspan.className = 'reviewCount';
+  // reviewCountspan.textContent = products.rating.reviewCount;
+  // starRatingDiv.appendChild(reviewCountspan);
+  // ratingDiv.appendChild(starRatingDiv);
 
-  let fetureUl = document.createElement('ul');
-  fetureUl.className = 'feture';
-  let behavioursLi = document.createElement('li');
-  behavioursLi.className = 'behaviours';
-  behavioursLi.textContent = data.behaviours;
-  let durationLi = document.createElement('li');
-  durationLi.className = 'duration';
-  durationLi.textContent = data.duration.day + 'Days' + data.duration.hours + 'hours' + data.duration.minutes + 'minutes';
-  fetureUl.appendChild(behavioursLi);
-  fetureUl.appendChild(durationLi);
+  // let fetureUl = document.createElement('ul');
+  // fetureUl.className = 'feture';
+  // let behavioursLi = document.createElement('li');
+  // behavioursLi.className = 'behaviours';
+  // behavioursLi.textContent = products.behaviours;
+  // let durationLi = document.createElement('li');
+  // durationLi.className = 'duration';
+  // durationLi.textContent = products.duration.day + 'Days' + products.duration.hours + 'hours' + products.duration.minutes + 'minutes';
+  // fetureUl.appendChild(behavioursLi);
+  // fetureUl.appendChild(durationLi);
 
-  let priceDiv = document.createElement('div');
-  let priceSpan = document.createElement('span');
-  priceSpan.className = 'price';
-  priceSpan.textContent = 'from ';
-  let showPriceStrong = document.createElement('strong');
-  showPriceStrong.className = 'showPrice';
-  showPriceStrong.textContent = '$' + data.price.retailPrice.amount.toFixed(2);
-  priceSpan.appendChild(showPriceStrong);
-  priceDiv.appendChild(priceSpan);
+  // let priceDiv = document.createElement('div');
+  // let priceSpan = document.createElement('span');
+  // priceSpan.className = 'price';
+  // priceSpan.textContent = 'from ';
+  // let showPriceStrong = document.createElement('strong');
+  // showPriceStrong.className = 'showPrice';
+  // showPriceStrong.textContent = '$' + products.price.retailPrice.amount.toFixed(2);
+  // priceSpan.appendChild(showPriceStrong);
+  // priceDiv.appendChild(priceSpan);
 
-  textDetailsDiv.appendChild(ratingDiv);
-  textDetailsDiv.appendChild(fetureUl);
-  imageDetailsDiv.appendChild(titleImage);
-  imageDetailsDiv.appendChild(textDetailsDiv);
-  textDetailsDiv.appendChild(priceDiv);
+  // textDetailsDiv.appendChild(ratingDiv);
+  // textDetailsDiv.appendChild(fetureUl);
+  // imageDetailsDiv.appendChild(titleImage);
+  // imageDetailsDiv.appendChild(textDetailsDiv);
+  // textDetailsDiv.appendChild(priceDiv);
 
-  imageContainer.appendChild(showImageDiv);
-  imageContainer.appendChild(imageDetailsDiv);
+  // imageContainer.appendChild(showImageDiv);
+  // imageContainer.appendChild(imageDetailsDiv);
 
-  // document.body.appendChild(imageContainer);
+  // // document.body.appendChild(imageContainer);
 
-  document.querySelector('.image-container').appendChild(imageContainer); // Use querySelector to select the first element with the class name 'image-container'
-  console.log('displayProducts');
-  console.log(data);
-  console.log('displayProducts');
-  console.log(data);
+  // document.querySelector('.image-container').appendChild(imageContainer); // Use querySelector to select the first element with the class name 'image-container'
+  // console.log('displayProducts');
+  // console.log(data);
+  // console.log('displayProducts');
+  // console.log(data);
 
 };
 
-displayProducts();
+getApi(); // Call the getApi function to display the products on the page
+
+
 
