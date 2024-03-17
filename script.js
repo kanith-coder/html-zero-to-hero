@@ -109,38 +109,53 @@ function displayProducts(products) {
 getApi(); // Call the getApi function to display the products on the page
 
 
-function addProduct() {
-  let product = {
-    title: 'New Product',
-    image: {
-      src: 'https://via.placeholder.com/300',
-      alt: 'Placeholder Image'
-    },
-    rating: {
-      score: 4.5,
-      reviewCount: 10
-    },
-    behaviours: 'New Behaviours',
-    duration: {
-      days: 1,
-      hours: 2,
-      minutes: 30
-    },
-    price: {
-      retailPrice: {
-        amount: 100
-      }
-    }
-  };
+// function addProduct() {
 
-  axios.post('https://pubpup-tour-default-rtdb.asia-southeast1.firebasedatabase.app/products.json', product)
-    .then(function (response) {
-      // handle success
-      console.log(response);
-      getApi();
-    })
-    .catch(function (error) {
-      // handle error
-      console.log(error);
-    });
-}
+//   const productCode = document.getElementById('productCode').value;
+//   const productTitle = document.getElementById('productTitle').value;
+//   const productImage = document.getElementById('imageFile').value;
+//   const productPrice = document.getElementById('productPrice').value;
+
+//   const productData = {
+//     "category": "day Trips",
+//     "code": productCode,
+//     "title": productTitle,
+//     "image": {
+//       "elementType": "img",
+//       "src": productImage,
+//       "srcSet": "",
+//       "sizes": "",
+//       "alt": productTitle 
+//     },
+//     "price": {
+//       "retailPrice": {
+//         "currencyCode": "USD",
+//         "currencySymbol": "$",
+//         "amount": productPrice
+//       }
+//     },
+//     "rating": {
+//       "score": 5,
+//       "reviewCount": 465
+//     },
+//     "duration": {
+//       "days": 0,
+//       "hours": 6,
+//       "minutes": 55
+//     },
+//     "behaviours": {
+//       "hasFreeCancellation": true
+//     }
+//   }
+
+//   axios.post('https://pubpup-tour-default-rtdb.asia-southeast1.firebasedatabase.app/products.json', productData)
+//   .then(response => {
+//     alert('Product added successfully!');
+// })
+// .catch(error => {
+//     console.error('Error:', error);
+//     alert('An error occurred. Please try again later.');
+// });
+// }
+
+
