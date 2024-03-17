@@ -69,7 +69,7 @@ function displayProducts(products) {
     fetureUl.className = 'feture';
     let behavioursLi = document.createElement('li');
     behavioursLi.className = 'behaviours';
-    behavioursLi.textContent = products.behaviours;
+    behavioursLi.textContent = products.behaviours.hasFreeCancellation ? 'Free Cancellation' : '';
     let durationLi = document.createElement('li');
     durationLi.className = 'duration';
     durationLi.textContent = products.duration.days + 'Days' + products.duration.hours + 'hours' + products.duration.minutes + 'minutes';
@@ -109,53 +109,53 @@ function displayProducts(products) {
 getApi(); // Call the getApi function to display the products on the page
 
 
-// function addProduct() {
+function addProduct() {
 
-//   const productCode = document.getElementById('productCode').value;
-//   const productTitle = document.getElementById('productTitle').value;
-//   const productImage = document.getElementById('imageFile').value;
-//   const productPrice = document.getElementById('productPrice').value;
+  const productCode = document.getElementById('productCode').value;
+  const productTitle = document.getElementById('productTitle').value;
+  const productImage = document.getElementById('imageFile').value;
+  const productPrice = document.getElementById('productPrice').value;
 
-//   const productData = {
-//     "category": "day Trips",
-//     "code": productCode,
-//     "title": productTitle,
-//     "image": {
-//       "elementType": "img",
-//       "src": productImage,
-//       "srcSet": "",
-//       "sizes": "",
-//       "alt": productTitle 
-//     },
-//     "price": {
-//       "retailPrice": {
-//         "currencyCode": "USD",
-//         "currencySymbol": "$",
-//         "amount": productPrice
-//       }
-//     },
-//     "rating": {
-//       "score": 5,
-//       "reviewCount": 465
-//     },
-//     "duration": {
-//       "days": 0,
-//       "hours": 6,
-//       "minutes": 55
-//     },
-//     "behaviours": {
-//       "hasFreeCancellation": true
-//     }
-//   }
+  const productData = {
+    "category": "day Trips",
+    "code": productCode,
+    "title": productTitle,
+    "image": {
+      "elementType": "img",
+      "src": "https://media.tacdn.com/media/attractions-splice-spp-674x446/07/71/e0/e6.jpg",
+      "srcSet": "",
+      "sizes": "",
+      "alt": productTitle 
+    },
+    "price": {
+      "retailPrice": {
+        "currencyCode": "USD",
+        "currencySymbol": "$",
+        "amount": productPrice
+      }
+    },
+    "rating": {
+      "score": 5,
+      "reviewCount": 465
+    },
+    "duration": {
+      "days": 0,
+      "hours": 6,
+      "minutes": 55
+    },
+    "behaviours": {
+      "hasFreeCancellation": true
+    }
+  }
 
-//   axios.post('https://pubpup-tour-default-rtdb.asia-southeast1.firebasedatabase.app/products.json', productData)
-//   .then(response => {
-//     alert('Product added successfully!');
-// })
-// .catch(error => {
-//     console.error('Error:', error);
-//     alert('An error occurred. Please try again later.');
-// });
-// }
+  axios.post(`https://pubpup-tour-default-rtdb.asia-southeast1.firebasedatabase.app/products/${productCode}.json`, productData)
+  .then(response => {
+    alert('Product added successfully!');
+})
+.catch(error => {
+    console.error('Error:', error);
+    alert('An error occurred. Please try again later.');
+});
+}
 
 

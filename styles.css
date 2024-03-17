@@ -148,3 +148,27 @@ h3 {
   content: "\2605";
   color: #FFD700;
 }
+
+.inputData {
+  width: 20%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.addProductBtn {
+  background-color: #f0db68;
+  color: #080707;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 20%;
+  font-size: 16px;
+}

@@ -213,21 +213,26 @@
     </section>
 
     <section>
+        <h3>Add Products</h3>
         <div class="inputForm">
-            <label for="productsCode">productsCode</label>
-            <input class="inputData" id="productsCode">
+            <label for="productCode">productsCode</label>
+            <input class="inputData" id="productCode" required>
         </div>
         <div>
-            <label for="titleName">Title</label>
-            <input class="inputData" id="titleName">
+            <label for="productTitle">Title</label>
+            <input class="inputData" id="productTitle" required>
         </div>
         <div class="imageForm">
-            <label for="price">Price</label>
-            <input class="inputData" id="price">
+            <div>
+                <label for="imageFile">Image</label>
+                <input class="inputData" id="imageFile" type="file" accept="image/*">
+            </div>
+            <label for="productPrice">Price</label>
+            <input class="inputData" id="productPrice" required>
         </div>
+        <button class="addProductBtn" type="submit" onclick="addProduct()">Add Product</button>
     </section>
 
-    <!-- Footer Section -->
     <footer>
         <p>&copy; 2024 Your Website Name. All Rights Reserved.</p>
     </footer>

@@ -76,7 +76,7 @@ function patchApi() {
 }
 
 function deleteApi() {
-    axios.delete('https://pubpup-tour-default-rtdb.asia-southeast1.firebasedatabase.app/products/545445AC45.json')
+    axios.delete('https://pubpup-tour-default-rtdb.asia-southeast1.firebasedatabase.app/products/1200.json')
     .then(response => {
         console.log('DELETE Response:', response.data);
     })
