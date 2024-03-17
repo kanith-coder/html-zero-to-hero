@@ -109,4 +109,38 @@ function displayProducts(products) {
 getApi(); // Call the getApi function to display the products on the page
 
 
+function addProduct() {
+  let product = {
+    title: 'New Product',
+    image: {
+      src: 'https://via.placeholder.com/300',
+      alt: 'Placeholder Image'
+    },
+    rating: {
+      score: 4.5,
+      reviewCount: 10
+    },
+    behaviours: 'New Behaviours',
+    duration: {
+      days: 1,
+      hours: 2,
+      minutes: 30
+    },
+    price: {
+      retailPrice: {
+        amount: 100
+      }
+    }
+  };
 
+  axios.post('https://pubpup-tour-default-rtdb.asia-southeast1.firebasedatabase.app/products.json', product)
+    .then(function (response) {
+      // handle success
+      console.log(response);
+      getApi();
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    });
+}
