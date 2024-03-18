@@ -177,4 +177,5 @@ function updateProductList(productData) {
  console.log('Received products:', productData);
 }
 
+
 getPoductData ();
