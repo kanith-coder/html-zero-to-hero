@@ -166,7 +166,6 @@ function getPoductData () {
     const productData = response.data;
 
     updateProductList(productData);
-    
   })
   .catch(error => {
     console.error('Error fetching product data:', error);
@@ -178,4 +177,12 @@ function updateProductList(productData) {
 }
 
 
-getPoductData ();
+function deleteProduct() {
+  const productCode = document.getElementById('inputProductDelete').value;
+
+  axios.delete(`https://pubpup-tour-default-rtdb.asia-southeast1.firebasedatabase.app/products/${productCode}.json`)
+  .then(response => {
+    alert('Product deleted successfully!');
+})
+}
+

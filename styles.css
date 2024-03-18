@@ -149,7 +149,7 @@ h3 {
   color: #FFD700;
 }
 
-.inputData {
+.inputData, .codeDelete {
   width: 20%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -161,7 +161,7 @@ h3 {
   grid-template-columns: repeat(4, 1fr);
 }
 
-.addProductBtn {
+.addProductBtn, .codeDeleteBtn {
   background-color: #f0db68;
   color: #080707;
   padding: 14px 20px;

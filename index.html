@@ -231,6 +231,16 @@
             <input type="number" class="inputData" id="productPrice" required>
         </div>
         <button class="addProductBtn" type="submit" onclick="addProduct()">Add Product</button>
+        
+        <div class="productList">
+            <h3>Product List</h3>
+            <ul class="productList"></ul>
+
+            <label for="inputProductDelete">Product Code</label>
+            <input class="codeDelete" id="inputProductDelete" required>
+        </div> 
+
+        <button class="codeDeleteBtn" onclick="deleteProduct()">Delete Product</button>
     </section>
 
     <footer>
