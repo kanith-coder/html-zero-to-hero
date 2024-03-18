@@ -156,7 +156,25 @@ function addProduct() {
     console.error('Error:', error);
     alert('An error occurred. Please try again later.');
 });
-
 }
 
+function getPoductData () {
+  axios.get('https://pubpup-tour-default-rtdb.asia-southeast1.firebasedatabase.app/products.json')
+  .then(response => {
+    console.log(response.data);
 
+    const productData = response.data;
+
+    updateProductList(productData);
+    
+  })
+  .catch(error => {
+    console.error('Error fetching product data:', error);
+  });
+}
+
+function updateProductList(productData) {
+ console.log('Received products:', productData);
+}
+
+getPoductData ();
