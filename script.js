@@ -32,7 +32,7 @@ function displayProducts(products) {
 
   // console.log(products);
   // console.log(data);
-  products.forEach(function(products) {
+  products.forEach(function(product) {
 
     let imageContainer = document.createElement('div');
     imageContainer.className = 'image-container';
@@ -40,8 +40,8 @@ function displayProducts(products) {
     let showImageDiv = document.createElement('div');
     showImageDiv.className = 'showImage';
     let image = document.createElement('img');
-    image.src = products.image.src;
-    image.alt = products.image.alt;
+    image.src = product.image.src;
+    image.alt = product.image.alt;
     showImageDiv.appendChild(image);
   
     let imageDetailsDiv = document.createElement('div');
@@ -49,7 +49,7 @@ function displayProducts(products) {
   
     let titleImage = document.createElement('h3');
     titleImage.className = 'textTitle';
-    titleImage.textContent = products.title;
+    titleImage.textContent = product.title;
   
     let textDetailsDiv = document.createElement('div');
     textDetailsDiv.className = 'textDetails';
@@ -58,10 +58,10 @@ function displayProducts(products) {
     ratingDiv.className = 'rating';
     let starRatingDiv = document.createElement('div');
     starRatingDiv.className = 'starRating';
-    starRatingDiv.textContent = products.rating.score;
+    starRatingDiv.textContent = product.rating.score;
     let reviewCountspan = document.createElement('span');
     reviewCountspan.className = 'reviewCount';
-    reviewCountspan.textContent = products.rating.reviewCount;
+    reviewCountspan.textContent = product.rating.reviewCount;
     starRatingDiv.appendChild(reviewCountspan);
     ratingDiv.appendChild(starRatingDiv);
   
@@ -69,10 +69,10 @@ function displayProducts(products) {
     fetureUl.className = 'feture';
     let behavioursLi = document.createElement('li');
     behavioursLi.className = 'behaviours';
-    behavioursLi.textContent = products.behaviours.hasFreeCancellation ? 'Free Cancellation' : '';
+    behavioursLi.textContent = product.behaviours.hasFreeCancellation ? 'Free Cancellation' : '';
     let durationLi = document.createElement('li');
     durationLi.className = 'duration';
-    durationLi.textContent = products.duration.days + 'Days' + products.duration.hours + 'hours' + products.duration.minutes + 'minutes';
+    durationLi.textContent = product.duration.days + 'Days' + product.duration.hours + 'hours' + product.duration.minutes + 'minutes';
     fetureUl.appendChild(behavioursLi);
     fetureUl.appendChild(durationLi);
   
@@ -82,7 +82,7 @@ function displayProducts(products) {
     priceSpan.textContent = 'from ';
     let showPriceStrong = document.createElement('strong');
     showPriceStrong.className = 'showPrice';
-    showPriceStrong.textContent = '$' + products.price.retailPrice.amount.toFixed(2);
+    showPriceStrong.textContent = '$' + product.price.retailPrice.amount.toFixed(2);
     priceSpan.appendChild(showPriceStrong);
     priceDiv.appendChild(priceSpan);
   
@@ -99,7 +99,7 @@ function displayProducts(products) {
   
     document.querySelector('.image-grid').appendChild(imageContainer); // Use querySelector to select the first element with the class name 'image-container'
     console.log('displayProducts');
-    console.log(products);
+    console.log(product);
 
   });
 
@@ -114,7 +114,7 @@ function addProduct() {
   const productCode = document.getElementById('productCode').value;
   const productTitle = document.getElementById('productTitle').value;
   const productImage = document.getElementById('imageFile').value;
-  const productPrice = document.getElementById('productPrice').value;
+  const productPrice = document.getElementById('productPrice').valueAsNumber;
 
   const productData = {
     "category": "day Trips",
@@ -148,7 +148,7 @@ function addProduct() {
     }
   }
 
-  axios.post(`https://pubpup-tour-default-rtdb.asia-southeast1.firebasedatabase.app/products/${productCode}.json`, productData)
+  axios.put(`https://pubpup-tour-default-rtdb.asia-southeast1.firebasedatabase.app/products/${productCode}.json`, productData)
   .then(response => {
     alert('Product added successfully!');
 })
@@ -156,7 +156,7 @@ function addProduct() {
     console.error('Error:', error);
     alert('An error occurred. Please try again later.');
 });
-getApi();
+
 }
 
 
