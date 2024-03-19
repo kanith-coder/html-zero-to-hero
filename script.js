@@ -151,31 +151,18 @@ function addProduct() {
   axios.put(`https://pubpup-tour-default-rtdb.asia-southeast1.firebasedatabase.app/products/${productCode}.json`, productData)
   .then(response => {
     alert('Product added successfully!');
+
+    console.log('Product added:', response);
+
+    let products = [];
+    products.push(productData);
+    displayProducts([productData]);
 })
 .catch(error => {
     console.error('Error:', error);
     alert('An error occurred. Please try again later.');
 });
 }
-
-function getPoductData () {
-  axios.get('https://pubpup-tour-default-rtdb.asia-southeast1.firebasedatabase.app/products.json')
-  .then(response => {
-    console.log(response.data);
-
-    const productData = response.data;
-
-    updateProductList(productData);
-  })
-  .catch(error => {
-    console.error('Error fetching product data:', error);
-  });
-}
-
-function updateProductList(productData) {
- console.log('Received products:', productData);
-}
-
 
 function deleteProduct() {
   const productCode = document.getElementById('inputProductDelete').value;
