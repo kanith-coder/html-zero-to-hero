@@ -184,9 +184,14 @@ function addProduct() {
 document.addEventListener('click', function(event) {
 
   if (event.target && event.target.matches('.deleteButton')) {
-    let divEle = event.target.closest('.image-container');
-    let sectionCon = divEle.closest('.image-grid');
-    let productCode = divEle.dataset.productCode;
+
+    // แสดง message box เพื่อยืนยันการลบ
+    let confirmation = confirm('คุณแน่ใจหรือไม่ที่ต้องการลบสินค้านี้?');
+    
+    if (confirmation) {
+      let divEle = event.target.closest('.image-container');
+      let sectionCon = divEle.closest('.image-grid');
+      let productCode = divEle.dataset.productCode;
 
     sectionCon.removeChild(divEle);
 
@@ -201,6 +206,7 @@ document.addEventListener('click', function(event) {
       // หากเกิดข้อผิดพลาดในการลบข้อมูลใน API คุณสามารถจัดการได้ตามความเหมาะสม
       // เช่น แสดงข้อความแจ้งเตือนหรือบันทึกข้อผิดพลาด
     });
+  }
   }
 });
 
