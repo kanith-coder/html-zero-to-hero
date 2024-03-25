@@ -15,6 +15,7 @@ function getApi() {
       });
       
       displayProducts(products)
+      
     })
     .catch(function (error) {
       // handle error
@@ -163,6 +164,7 @@ function addProduct() {
     alert('An error occurred. Please try again later.');
 });
 }
+ 
 
 function deleteProduct() {
   const productCode = document.getElementById('inputProductDelete').value;
@@ -170,6 +172,7 @@ function deleteProduct() {
   axios.delete(`https://pubpup-tour-default-rtdb.asia-southeast1.firebasedatabase.app/products/${productCode}.json`)
   .then(response => {
     alert('Product deleted successfully!');
+    console.log('Product deleted:', response);
 })
 }
 
