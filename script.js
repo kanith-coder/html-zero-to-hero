@@ -26,6 +26,14 @@ function getApi() {
     });
 }
 
+function clearInputs(event) {
+  document.getElementById('productCode').value = '';
+  document.getElementById('productTitle').value = '';
+  document.getElementById('imageFile').value = '';
+  document.getElementById('productPrice').value = '';
+
+  event.preventDefault();
+}
 
 
 function displayProducts(products) {
@@ -86,6 +94,12 @@ function displayProducts(products) {
     showPriceStrong.textContent = '$' + product.price.retailPrice.amount.toFixed(2);
     priceSpan.appendChild(showPriceStrong);
     priceDiv.appendChild(priceSpan);
+
+    let buttonDiv = document.createElement('div');
+    let deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Delete';
+    deleteButton.className = 'deleteButton';
+    buttonDiv.appendChild(deleteButton);
   
     textDetailsDiv.appendChild(ratingDiv);
     textDetailsDiv.appendChild(fetureUl);
@@ -95,6 +109,7 @@ function displayProducts(products) {
   
     imageContainer.appendChild(showImageDiv);
     imageContainer.appendChild(imageDetailsDiv);
+    imageContainer.appendChild(buttonDiv);
   
     // document.body.appendChild(imageContainer);
   
@@ -123,7 +138,7 @@ function addProduct() {
     "title": productTitle,
     "image": {
       "elementType": "img",
-      "src": "https://media.tacdn.com/media/attractions-splice-spp-674x446/07/71/e0/e6.jpg",
+      "src": productImage,
       "srcSet": "",
       "sizes": "",
       "alt": productTitle 
@@ -166,13 +181,26 @@ function addProduct() {
 }
  
 
-function deleteProduct() {
-  const productCode = document.getElementById('inputProductDelete').value;
+document.addEventListener('click', function(event) {
 
-  axios.delete(`https://pubpup-tour-default-rtdb.asia-southeast1.firebasedatabase.app/products/${productCode}.json`)
-  .then(response => {
-    alert('Product deleted successfully!');
-    console.log('Product deleted:', response);
-})
-}
+  if (event.target && event.target.matches('.deleteButton')) {
+    let divEle = event.target.closest('.image-container');
+    let sectionCon = divEle.closest('.image-grid');
+    let productCode = divEle.dataset.productCode;
+
+    sectionCon.removeChild(divEle);
+
+    axios.delete(`https://pubpup-tour-default-rtdb.asia-southeast1.firebasedatabase.app/products/${productCode}.json`)
+    .then(response => {
+      alert('Product deleted successfully!');
+      console.log('Product deleted:', response);
+    })
+    .catch(error => {
+      console.error('Error deleting product:', error);
+      alert('Error deleting product. Please try again later.');
+      // หากเกิดข้อผิดพลาดในการลบข้อมูลใน API คุณสามารถจัดการได้ตามความเหมาะสม
+      // เช่น แสดงข้อความแจ้งเตือนหรือบันทึกข้อผิดพลาด
+    });
+  }
+});
 

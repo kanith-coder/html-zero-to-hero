@@ -34,52 +34,25 @@
 
     <section>
         <h3>Add Products</h3>
+        <form class="addProductForm" onsubmit="clearInputs(event)"  >
         <div class="inputForm">
             <label for="productCode">productsCode</label>
-            <input class="inputData" id="productCode" required>
+            <input type="text" class="inputData" id="productCode" required>
         </div>
         <div>
             <label for="productTitle">Title</label>
-            <input class="inputData" id="productTitle" required>
+            <input type="text" class="inputData" id="productTitle" required>
         </div>
         <div class="imageForm">
             <div>
                 <label for="imageFile">Image</label>
-                <input class="inputData" id="imageFile" type="file" accept="image/*">
+                <input type="text" class="inputData" id="imageFile" accept="image/*">
             </div>
             <label for="productPrice">Price</label>
             <input type="number" class="inputData" id="productPrice" required>
         </div>
-        <button class="addProductBtn" type="submit" onclick="addProduct()">Add Product</button>
-        
-        <div class="productList">
-            <h3>Product List</h3>
-            <ul class="productList"></ul>
-
-            <label for="inputProductDelete">Product Code</label>
-            <input class="codeDelete" id="inputProductDelete" required>
-        </div> 
-
-        <button class="codeDeleteBtn" onclick="deleteProduct()">Delete Product</button>
-    </section>
-
-    <section class="content">
-        <div class="container" id="div1">
-            <button class="del-action">Button in Div 1</button>
-        </div>
-        <div class="container" id="div2">
-            <div id="div2"></div>
-            <button class="btn-action">Button in Div 2</button>
-        </div>
-    </section>
-
-    <section class="content">
-        <div class="container" id="div1">
-            <button class="btn-action">Add product</button>
-        </div>
-        <div class="container" id="div2">
-            <button class="btn-action">Button in Div 2</button>
-        </div>
+        <button class="addProductBtn" type="submit"  onclick="addProduct()" onclick="clearInputs()">Add Product</button>
+        </form>
     </section>
 
     <footer>
