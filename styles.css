@@ -161,7 +161,7 @@ h3 {
   grid-template-columns: repeat(4, 1fr);
 }
 
-.addProductBtn, .codeDeleteBtn {
+.addProductBtn {
   background-color: #f0db68;
   color: #080707;
   padding: 14px 20px;
@@ -183,4 +183,9 @@ h3 {
   cursor: pointer;
   width: 80%;
   font-size: 14px;
+}
+
+.deleteButton:hover,
+.addProductBtn:hover {
+  background-color: #e4b55e; /* สีพื้นหลังเมื่อ hover */
 }
