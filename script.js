@@ -13,9 +13,9 @@ function getApi() {
       keys.forEach(key => {
         products.push(data[key]);
       });
-      
+
       displayProducts(products)
-      
+
     })
     .catch(function (error) {
       // handle error
@@ -41,28 +41,28 @@ function displayProducts(products) {
 
   // console.log(products);
   // console.log(data);
-  products.forEach(function(product) {
+  products.forEach(function (product) {
 
     let imageContainer = document.createElement('div');
     imageContainer.className = 'image-container';
-  
+
     let showImageDiv = document.createElement('div');
     showImageDiv.className = 'showImage';
     let image = document.createElement('img');
     image.src = product.image.src;
     image.alt = product.image.alt;
     showImageDiv.appendChild(image);
-  
+
     let imageDetailsDiv = document.createElement('div');
     imageDetailsDiv.className = 'image-details';
-  
+
     let titleImage = document.createElement('h3');
     titleImage.className = 'textTitle';
     titleImage.textContent = product.title;
-  
+
     let textDetailsDiv = document.createElement('div');
     textDetailsDiv.className = 'textDetails';
-  
+
     let ratingDiv = document.createElement('div');
     ratingDiv.className = 'rating';
     let starRatingDiv = document.createElement('div');
@@ -73,7 +73,7 @@ function displayProducts(products) {
     reviewCountspan.textContent = product.rating.reviewCount;
     starRatingDiv.appendChild(reviewCountspan);
     ratingDiv.appendChild(starRatingDiv);
-  
+
     let fetureUl = document.createElement('ul');
     fetureUl.className = 'feture';
     let behavioursLi = document.createElement('li');
@@ -84,7 +84,7 @@ function displayProducts(products) {
     durationLi.textContent = product.duration.days + 'Days' + product.duration.hours + 'hours' + product.duration.minutes + 'minutes';
     fetureUl.appendChild(behavioursLi);
     fetureUl.appendChild(durationLi);
-  
+
     let priceDiv = document.createElement('div');
     let priceSpan = document.createElement('span');
     priceSpan.className = 'price';
@@ -99,20 +99,21 @@ function displayProducts(products) {
     let deleteButton = document.createElement('button');
     deleteButton.textContent = 'Delete';
     deleteButton.className = 'deleteButton';
+    deleteButton.setAttribute('productCode', product.code);
     buttonDiv.appendChild(deleteButton);
-  
+
     textDetailsDiv.appendChild(ratingDiv);
     textDetailsDiv.appendChild(fetureUl);
     imageDetailsDiv.appendChild(titleImage);
     imageDetailsDiv.appendChild(textDetailsDiv);
     textDetailsDiv.appendChild(priceDiv);
-  
+
     imageContainer.appendChild(showImageDiv);
     imageContainer.appendChild(imageDetailsDiv);
     imageContainer.appendChild(buttonDiv);
-  
+
     // document.body.appendChild(imageContainer);
-  
+
     document.querySelector('.image-grid').appendChild(imageContainer); // Use querySelector to select the first element with the class name 'image-container'
     console.log('displayProducts');
     console.log(product);
@@ -141,7 +142,7 @@ function addProduct() {
       "src": productImage,
       "srcSet": "",
       "sizes": "",
-      "alt": productTitle 
+      "alt": productTitle
     },
     "price": {
       "retailPrice": {
@@ -165,46 +166,49 @@ function addProduct() {
   }
 
   axios.put(`https://pubpup-tour-default-rtdb.asia-southeast1.firebasedatabase.app/products/${productCode}.json`, productData)
-  .then(response => {
-    alert('Product added successfully!');
+    .then(response => {
+      alert('Product added successfully!');
 
-    console.log('Product added:', response);
+      console.log('Product added:', response);
 
-    let products = [];
-    products.push(productData);
-    displayProducts([productData]);
-})
-.catch(error => {
-    console.error('Error:', error);
-    alert('An error occurred. Please try again later.');
-});
+      let products = [];
+      products.push(productData);
+      displayProducts([productData]);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      alert('An error occurred. Please try again later.');
+    });
 }
- 
 
-document.addEventListener('click', function(event) {
+
+document.addEventListener('click', function (event) {
 
   if (event.target && event.target.matches('.deleteButton')) {
 
     // แสดง message box เพื่อยืนยันการลบ
     let confirmation = confirm('คุณแน่ใจหรือไม่ที่ต้องการลบสินค้านี้?');
-    
+
     if (confirmation) {
       let divEle = event.target.closest('.image-container');
       let sectionCon = divEle.closest('.image-grid');
-      let productCode = divEle.dataset.productCode;
+      // let productCode = divEle.dataset.productCode;
 
-    sectionCon.removeChild(divEle);
+      let productCode = event.target.getAttribute('productCode');
 
-    axios.delete(`https://pubpup-tour-default-rtdb.asia-southeast1.firebasedatabase.app/products/${productCode}.json`)
-    .then(response => {
-      alert('Product deleted successfully!');
-      console.log('Product deleted:', response);
-    })
-    .catch(error => {
-      console.error('Error deleting product:', error);
-      alert('Error deleting product. Please try again later.');
-    });
-  }
+      axios.delete(`https://pubpup-tour-default-rtdb.asia-southeast1.firebasedatabase.app/products/${productCode}.json`)
+        .then(response => {
+          sectionCon.removeChild(divEle);
+          alert('Product deleted successfully!');
+          console.log('Product deleted:', response);
+        })
+
+        .catch(error => {
+          console.error('Error deleting product:', error);
+          alert('Error deleting product. Please try again later.');
+
+        });
+    }
   }
 });
 
