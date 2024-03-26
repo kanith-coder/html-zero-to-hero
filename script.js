@@ -203,8 +203,6 @@ document.addEventListener('click', function(event) {
     .catch(error => {
       console.error('Error deleting product:', error);
       alert('Error deleting product. Please try again later.');
-      // หากเกิดข้อผิดพลาดในการลบข้อมูลใน API คุณสามารถจัดการได้ตามความเหมาะสม
-      // เช่น แสดงข้อความแจ้งเตือนหรือบันทึกข้อผิดพลาด
     });
   }
   }
