@@ -3,39 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>รายรับ-รายจ่าย</title>
+    <title>เว็บไซต์ของฉัน</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <div class="container">
+    <div class="header">
         <h1>ตารางรายรับรายจ่าย</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>วันที่</th>
-                    <th>รายการ</th>
-                    <th>รายรับ</th>
-                    <th>รายจ่าย</th>
-                </tr>
-            </thead>
-            <tbody id="table-body">
-                <!-- ตารางรายการจะถูกเติมที่นี่ -->
-            </tbody>
-        </table>
-        <div id="summary">
+    </div>
+
+    <div class="sidebar">
+        <h2>Sidebar</h2>
+        <ul>
+            <li><a href="#">หน้าแรก</a></li>
+            <li><a href="#">เกี่ยวกับ</a></li>
+            <li><a href="#">บริการ</a></li>
+            <li><a href="#">ติดต่อ</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <form>
             <table>
+                <thead>
                     <tr>
-                        <th id="income-summary">รวมรายรับ: 0</th>
-                        <th id="expense-summary">รวมรายจ่าย: 0</th>
-                        <th id="balance">ยอดคงเหลือ: 0</th>
+                        <th>วันที่</th>
+                        <th>รายการ</th>
+                        <th>รายรับ</th>
+                        <th>รายจ่าย</th>
                     </tr>
+                </thead>
                 <tbody id="table-body">
                     <!-- ตารางรายการจะถูกเติมที่นี่ -->
                 </tbody>
             </table>
+        </form>
+        <div id="summary">
+            <table>
+                <tr>
+                    <th id="income-summary">รวมรายรับ: 0</th>
+                    <th id="expense-summary">รวมรายจ่าย: 0</th>
+                    <th id="balance">ยอดคงเหลือ: 0</th>
+                </tr>
+            </table>
         </div>
+        <form>
+
+        </form>
     </div>
     <script src="script.js"></script>
-    
 </body>
 </html>
