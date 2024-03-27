@@ -1,214 +1,77 @@
+document.addEventListener("DOMContentLoaded", function() {
+  const tableBody = document.getElementById('table-body');
+  const incomeSummary = document.getElementById('income-summary');
+  const expenseSummary = document.getElementById('expense-summary');
+  const balance = document.getElementById('balance');
 
-function getApi() {
-  axios.get('https://pubpup-tour-default-rtdb.asia-southeast1.firebasedatabase.app/products.json')
-    .then(function (response) {
-      // handle success
-      // console.log(response.data);
+  let totalIncome = 0;
+  let totalExpense = 0;
 
-      let data = response.data;
-      // get object keys from data
-      let keys = Object.keys(data);
-      // console.log(keys);
-      let products = [];
-      keys.forEach(key => {
-        products.push(data[key]);
-      });
-
-      displayProducts(products)
-
-    })
-    .catch(function (error) {
-      // handle error
-      console.log(error);
-    })
-    .then(function () {
-      // always executed
-    });
-}
-
-function clearInputs(event) {
-  document.getElementById('productCode').value = '';
-  document.getElementById('productTitle').value = '';
-  document.getElementById('imageFile').value = '';
-  document.getElementById('productPrice').value = '';
-
-  event.preventDefault();
-}
-
-
-function displayProducts(products) {
-  // let data = products;
-
-  // console.log(products);
-  // console.log(data);
-  products.forEach(function (product) {
-
-    let imageContainer = document.createElement('div');
-    imageContainer.className = 'image-container';
-
-    let showImageDiv = document.createElement('div');
-    showImageDiv.className = 'showImage';
-    let image = document.createElement('img');
-    image.src = product.image.src;
-    image.alt = product.image.alt;
-    showImageDiv.appendChild(image);
-
-    let imageDetailsDiv = document.createElement('div');
-    imageDetailsDiv.className = 'image-details';
-
-    let titleImage = document.createElement('h3');
-    titleImage.className = 'textTitle';
-    titleImage.textContent = product.title;
-
-    let textDetailsDiv = document.createElement('div');
-    textDetailsDiv.className = 'textDetails';
-
-    let ratingDiv = document.createElement('div');
-    ratingDiv.className = 'rating';
-    let starRatingDiv = document.createElement('div');
-    starRatingDiv.className = 'starRating';
-    starRatingDiv.textContent = product.rating.score;
-    let reviewCountspan = document.createElement('span');
-    reviewCountspan.className = 'reviewCount';
-    reviewCountspan.textContent = product.rating.reviewCount;
-    starRatingDiv.appendChild(reviewCountspan);
-    ratingDiv.appendChild(starRatingDiv);
-
-    let fetureUl = document.createElement('ul');
-    fetureUl.className = 'feture';
-    let behavioursLi = document.createElement('li');
-    behavioursLi.className = 'behaviours';
-    behavioursLi.textContent = product.behaviours.hasFreeCancellation ? 'Free Cancellation' : '';
-    let durationLi = document.createElement('li');
-    durationLi.className = 'duration';
-    durationLi.textContent = product.duration.days + 'Days' + product.duration.hours + 'hours' + product.duration.minutes + 'minutes';
-    fetureUl.appendChild(behavioursLi);
-    fetureUl.appendChild(durationLi);
-
-    let priceDiv = document.createElement('div');
-    let priceSpan = document.createElement('span');
-    priceSpan.className = 'price';
-    priceSpan.textContent = 'from ';
-    let showPriceStrong = document.createElement('strong');
-    showPriceStrong.className = 'showPrice';
-    showPriceStrong.textContent = '$' + product.price.retailPrice.amount.toFixed(2);
-    priceSpan.appendChild(showPriceStrong);
-    priceDiv.appendChild(priceSpan);
-
-    let buttonDiv = document.createElement('div');
-    let deleteButton = document.createElement('button');
-    deleteButton.textContent = 'Delete';
-    deleteButton.className = 'deleteButton';
-    deleteButton.setAttribute('productCode', product.code);
-    buttonDiv.appendChild(deleteButton);
-
-    textDetailsDiv.appendChild(ratingDiv);
-    textDetailsDiv.appendChild(fetureUl);
-    imageDetailsDiv.appendChild(titleImage);
-    imageDetailsDiv.appendChild(textDetailsDiv);
-    textDetailsDiv.appendChild(priceDiv);
-
-    imageContainer.appendChild(showImageDiv);
-    imageContainer.appendChild(imageDetailsDiv);
-    imageContainer.appendChild(buttonDiv);
-
-    // document.body.appendChild(imageContainer);
-
-    document.querySelector('.image-grid').appendChild(imageContainer); // Use querySelector to select the first element with the class name 'image-container'
-    console.log('displayProducts');
-    console.log(product);
-
-  });
-
-
-};
-
-getApi(); // Call the getApi function to display the products on the page
-
-
-function addProduct() {
-
-  const productCode = document.getElementById('productCode').value;
-  const productTitle = document.getElementById('productTitle').value;
-  const productImage = document.getElementById('imageFile').value;
-  const productPrice = document.getElementById('productPrice').valueAsNumber;
-
-  const productData = {
-    "category": "day Trips",
-    "code": productCode,
-    "title": productTitle,
-    "image": {
-      "elementType": "img",
-      "src": productImage,
-      "srcSet": "",
-      "sizes": "",
-      "alt": productTitle
-    },
-    "price": {
-      "retailPrice": {
-        "currencyCode": "USD",
-        "currencySymbol": "$",
-        "amount": productPrice
-      }
-    },
-    "rating": {
-      "score": 5,
-      "reviewCount": 465
-    },
-    "duration": {
-      "days": 0,
-      "hours": 6,
-      "minutes": 55
-    },
-    "behaviours": {
-      "hasFreeCancellation": true
-    }
+  function updateSummary() {
+      incomeSummary.textContent = `รวมรายรับ: ${totalIncome}`;
+      expenseSummary.textContent = `รวมรายจ่าย: ${totalExpense}`;
+      balance.textContent = `ยอดคงเหลือ: ${totalIncome - totalExpense}`;
   }
 
-  axios.put(`https://pubpup-tour-default-rtdb.asia-southeast1.firebasedatabase.app/products/${productCode}.json`, productData)
-    .then(response => {
-      alert('Product added successfully!');
+  function addTransaction(date, description, income, expense) {
+      const newRow = document.createElement('tr');
+      newRow.innerHTML = `
+          <td>${date}</td>
+          <td>${description}</td>
+          <td>${income}</td>
+          <td>${expense}</td>
+      `;
+      tableBody.appendChild(newRow);
 
-      console.log('Product added:', response);
+      totalIncome += income;
+      totalExpense += expense;
 
-      let products = [];
-      products.push(productData);
-      displayProducts([productData]);
-    })
-    .catch(error => {
-      console.error('Error:', error);
-      alert('An error occurred. Please try again later.');
-    });
-}
-
-
-document.addEventListener('click', function (event) {
-
-  if (event.target && event.target.matches('.deleteButton')) {
-
-    // แสดง message box เพื่อยืนยันการลบ
-    let confirmation = confirm('คุณแน่ใจหรือไม่ที่ต้องการลบสินค้านี้?');
-
-    if (confirmation) {
-      let divEle = event.target.closest('.image-container');
-      let sectionCon = divEle.closest('.image-grid');
-      // let productCode = divEle.dataset.productCode;
-
-      let productCode = event.target.getAttribute('productCode');
-
-      axios.delete(`https://pubpup-tour-default-rtdb.asia-southeast1.firebasedatabase.app/products/${productCode}.json`)
-        .then(response => {
-          sectionCon.removeChild(divEle);
-          alert('Product deleted successfully!');
-          console.log('Product deleted:', response);
-        })
-
-        .catch(error => {
-          console.error('Error deleting product:', error);
-          alert('Error deleting product. Please try again later.');
-
-        });
-    }
+      updateSummary();
   }
+
+  
+  // เพิ่มรายการรายรับ-รายจ่ายตัวอย่าง
+  addTransaction('2024-03-27', 'เงินเดือน', 30000, 0);
+  addTransaction('2024-03-28', 'ชำระค่าเช่า', 0, 7000);
 });
 
+// สมมติให้ income และ expense เป็นตัวแปรที่เก็บยอดรวมรายรับและรายจ่ายตามลำดับ
+const income = 50000;
+const expense = 20000;
+
+// เลือก canvas element ที่เราสร้างขึ้นมาให้แสดงผล
+const ctx = document.getElementById('myChart').getContext('2d');
+
+// สร้างข้อมูลสำหรับกราฟวงกลม
+const data = {
+  labels: ['รายรับ', 'รายจ่าย'],
+  datasets: [{
+    label: 'รายรับและรายจ่าย',
+    data: [income, expense],
+    backgroundColor: [
+      'rgba(75, 192, 192, 0.2)', // สีสำหรับรายรับ
+      'rgba(255, 99, 132, 0.2)' // สีสำหรับรายจ่าย
+    ],
+    borderColor: [
+      'rgba(75, 192, 192, 1)',
+      'rgba(255, 99, 132, 1)'
+    ],
+    borderWidth: 1
+  }]
+};
+
+// กำหนดค่าอื่น ๆ ของกราฟ
+const options = {
+  scales: {
+    y: {
+      beginAtZero: true
+    }
+  }
+};
+
+// สร้างกราฟวงกลม
+const myPieChart = new Chart(ctx, {
+  type: 'pie',
+  data: data,
+  options: options
+});

@@ -1,69 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>รายรับ-รายจ่าย</title>
     <link rel="stylesheet" href="styles.css">
-    <title>Your Website Title</title>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
-
 <body>
-
-    <!-- Header Section -->
-    <header>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide|Sofia|Trirong">
-        <h1>Pubpup Tours</h1>
-    </header>
-
-    <section class="content">
-        <div>
-            <input class="inputSearch">
+    <div class="container">
+        <h1>ตารางรายรับรายจ่าย</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>วันที่</th>
+                    <th>รายการ</th>
+                    <th>รายรับ</th>
+                    <th>รายจ่าย</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                <!-- ตารางรายการจะถูกเติมที่นี่ -->
+            </tbody>
+        </table>
+        <div id="summary">
+            <table>
+                    <tr>
+                        <th id="income-summary">รวมรายรับ: 0</th>
+                        <th id="expense-summary">รวมรายจ่าย: 0</th>
+                        <th id="balance">ยอดคงเหลือ: 0</th>
+                    </tr>
+                <tbody id="table-body">
+                    <!-- ตารางรายการจะถูกเติมที่นี่ -->
+                </tbody>
+            </table>
         </div>
-        <div class="date-picker">
-            <input type="date" id="datepicker" name="datepicker">
-        </div>
-        <h2>Bangkok Tours</h2>
-
-        <!-- Image Grid -->
-        <div class="image-grid">
-
-        </div>
-    </section>
-
-    <section>
-        <h3>Add Products</h3>
-        <form class="addProductForm" onsubmit="clearInputs(event)"  >
-        <div class="inputForm">
-            <label for="productCode">productsCode</label>
-            <input type="text" class="inputData" id="productCode" required>
-        </div>
-        <div>
-            <label for="productTitle">Title</label>
-            <input type="text" class="inputData" id="productTitle" required>
-        </div>
-        <div class="imageForm">
-            <div>
-                <label for="imageFile">Image</label>
-                <input type="text" class="inputData" id="imageFile" accept="image/*">
-            </div>
-            <label for="productPrice">Price</label>
-            <input type="number" class="inputData" id="productPrice" required>
-        </div>
-        <button class="addProductBtn" type="submit"  onclick="addProduct()" onclick="clearInputs()">Add Product</button>
-        </form>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 Your Website Name. All Rights Reserved.</p>
-    </footer>
-
-    <script src="./dateUtils.js"></script>
-    <script src="./script.js"></script>
-    <script src="./api-sample/error-api.js"></script>
-    <script src="./api-sample/parent-element.js"></script>
-
+    </div>
+    <script src="script.js"></script>
+    
 </body>
-
 </html>
