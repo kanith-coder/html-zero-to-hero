@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,16 +11,42 @@
 <body>
     <div class="header">
         <h1>ตารางรายรับรายจ่าย</h1>
+        <div class="inputContainer">
+            <div class="input-row">
+                <div class="input-section">
+                    <input type="date" id="date" name="date" placeholder="วันที่">
+                </div>
+                <div class="input-section">
+                    <select id="category">
+                        <option value="" disabled selected>รายการ</option>
+                        <option value="รายรับ">รายรับ</option>
+                        <option value="รายจ่าย">รายจ่าย</option>
+                    </select>
+                </div>
+                <div class="input-section">
+                    <select id="typeCost">
+                        <option value="" disabled selected>ประเภท</option>
+                        <option value="รายรับ">รายรับ</option>
+                        <option value="รายจ่าย">รายจ่าย</option>
+                    </select>
+                </div>
+                <div class="input-section">
+                    <input type="number" id="amount" name="amount" min="0" placeholder="จำนวนเงิน">
+                </div>
+                <div class="input-section">
+                    <button onclick="addTransaction()">เพิ่มรายการ</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="sidebar">
-        <h2>Sidebar</h2>
-        <ul>
-            <li><a href="#">หน้าแรก</a></li>
-            <li><a href="#">เกี่ยวกับ</a></li>
-            <li><a href="#">บริการ</a></li>
-            <li><a href="#">ติดต่อ</a></li>
-        </ul>
+        <h2>* * Summary * *</h2>
+        <div id="summary" class="summary">
+                <div id="income-summary" class="dataSummary">รวมรายรับ: 0</div>
+                <div id="expense-summary" class="dataSummary">รวมรายจ่าย: 0</div>
+                <div id="balance" class="dataSummary">ยอดคงเหลือ: 0</div>
+        </div>
     </div>
 
     <div class="content">
@@ -38,19 +65,8 @@
                 </tbody>
             </table>
         </form>
-        <div id="summary">
-            <table>
-                <tr>
-                    <th id="income-summary">รวมรายรับ: 0</th>
-                    <th id="expense-summary">รวมรายจ่าย: 0</th>
-                    <th id="balance">ยอดคงเหลือ: 0</th>
-                </tr>
-            </table>
-        </div>
-        <form>
-
-        </form>
     </div>
     <script src="script.js"></script>
 </body>
+
 </html>

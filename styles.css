@@ -1,23 +1,74 @@
-/* Sidebar */
+.header {
+  color: rgb(0, 0, 0);
+  padding: 5px 0 0 200px;
+  text-align: center;
+}
+
+.inputContainer {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #d1f8f0
+}
+
+.input-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.input-section {
+  flex: 4 1 20%; /* แบ่งเป็น 4 ส่วนเท่าๆ กัน */
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.input-section label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.input-section input,
+.input-section select {
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+  font-weight: bold;
+}
+
+.input-section button {
+  width: 20%;
+  height: 40px;
+  padding: 5px;
+  box-sizing: border-box;
+  background-color: #37B5B6;  
+  color: rgb(12, 0, 0);
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
 
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  
 }
 
+/* Sidebar */
 .sidebar {
   height: 100%;
-  width: 250px;
+  width: 300px;
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #111;
+  background-color: #f3f3f3;
   padding-top: 20px;
 }
 
 .sidebar h2 {
-  color: #fff;
+  color: #070000;
   text-align: center;
 }
 
@@ -36,16 +87,57 @@ body {
 }
 
 .content {
-  margin-left: 250px;
+  margin-left: 400px;
   padding: 20px;
+}
+
+.summary {
+  margin-top: 20px;
+  padding: 20px;
+  color: #fff;
+  text-align: left;
+}
+
+.dataSummary {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+#income-summary {
+  border-radius: 15px;
+  border: #50dd9b;
+  padding: 10px;
+  background-color: #15F5BA;
+  color: #0c614a;
+  font-weight: bold;
+}
+
+#expense-summary {
+  border-radius: 15px;
+  border: #EF4040;
+  padding: 10px;
+  background-color: #E78895;
+  color: #E72929;
+  font-weight: bold;
+}
+
+#balance {
+  border-radius: 15px;
+  border: #dbdbdb;
+  padding: 10px;
+  background-color: #fcfcfc;
+  color: #070303;
+  font-weight: bold;
 }
 
 /* container */
 
 .container {
   max-width: 800px;
-  margin: 20px auto;
-  padding: 20px;
+  margin: 50px auto;
+  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
@@ -55,21 +147,28 @@ h1 {
 }
 
 table {
-  width: 100%;
+  width: 80%;
   border-collapse: collapse;
   margin-bottom: 20px;
 }
 
 table, th, td {
   border: 1px solid #ddd;
-  padding: 8px;
+  padding: 5px;
   text-align: center;
 }
 
 th {
-  background-color: #6ee2ac;
+  background-color: #37B5B6;
 }
 
-#summary {
-  text-align: center;
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Alternate row colors */
+tr:nth-child(even) {
+  background-color: #d1f8f0;
 }
